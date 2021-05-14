@@ -1,5 +1,37 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Tech Stack
+
+frontend: react.js + next.js
+css-framework: tailwindcss
+cms: netlify
+
+### Libraries
+
+import cn from 'classnames' // toggle classes
+import fs from 'fs' // fetch files from client
+import path from 'path' // handle file paths
+import matter from 'gray-matter' // parse metadata from md files
+import remark from 'remark' // parse md to html
+import html from 'remark-html'
+import { parseISO, format } from 'date-fns' // format dates
+
+import Link from 'next/link' // client-side navigation
+import Image from 'next/image' // resizing + optimizing + lazy loading images
+import Head from 'next/head' // metadata
+getStaticPaths // returns array of possible url parameters
+getStaticProps // static generation
+getServerSideProps // server-sider rendering
+SWR // client-side rendering
+
+### Concepts
+
+Hydration: React components are initialized and App becomes interactive
+Static Generation: pre=rendering method that generates the HTML at build time
+Server-side Rendering: pre-rendering method that generates the HTML on each request
+Client-side Rendering: pre-render without data and then load on the client-side
+API routes/ Serverless functions/ Preview Mode: use when handling form / cms
+
 ## Getting Started
 
 First, run the development server:
