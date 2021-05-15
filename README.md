@@ -5,6 +5,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 frontend: react.js + next.js
 css-framework: tailwindcss
 cms: netlify
+icons: font-awesome
 
 ### Libraries
 
