@@ -1,18 +1,8 @@
 import React from "react";
-import { Formik, Form, useField } from "formik";
+import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import Layout from "../components/layout";
-
-const Input = ({ label, ...props }) => {
-	const [field, meta] = useField(props);
-	return (
-		<div className="flex flex-col m-2">
-			<label htmlFor={props.id || props.name}>{label}</label>
-			<input {...field} {...props} />
-			{meta.touched && meta.error ? <div>{meta.error}</div> : null}
-		</div>
-	);
-};
+import Input from "../components/input";
 
 const RegisterFormValidation = Yup.object({
 	firstName: Yup.string()
@@ -26,7 +16,12 @@ const RegisterFormValidation = Yup.object({
 		/^[1-9]\d{2}-\d{3}-\d{4}/,
 		"Invalid phone number format"
 	),
-	email: Yup.string().email("Invalid email address").required("Required"),
+	email: Yup.string()
+		.matches(
+			/(\W|^)[\w.-]{0,25}@uci\.edu(\W|$)/,
+			"Must be valid UCI email address"
+		)
+		.required("Required"),
 	password: Yup.string()
 		.min(8, "Must be at least 8 characters")
 		.required("Required"),
@@ -36,11 +31,20 @@ const RegisterFormValidation = Yup.object({
 });
 
 const RegisterPage = () => {
-	const onSubmit = (values, { setSubmitting }) => {
-		setTimeout(() => {
-			alert(JSON.stringify(values, null, 2));
-			setSubmitting(false);
-		}, 400);
+	const onSubmit = async (values, { setSubmitting }) => {
+		const response = await fetch("http://localhost:4000/register", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				...values,
+				userId: values.email.substring(0, values.email.indexOf("@uci.edu")),
+			}),
+		});
+		const data = await response.json();
+		console.log(data);
+		setSubmitting(false);
 	};
 
 	return (
