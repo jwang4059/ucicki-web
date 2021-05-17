@@ -6,7 +6,7 @@ import Input from "../components/input";
 
 const RegisterFormValidation = Yup.object({
 	firstName: Yup.string()
-		.max(15, "Must be 15 characters or less")
+		.max(20, "Must be 15 characters or less")
 		.required("Required"),
 	lastName: Yup.string()
 		.max(20, "Must be 20 characters or less")
@@ -27,13 +27,15 @@ const RegisterFormValidation = Yup.object({
 		.required("Required"),
 	passwordConfirmation: Yup.string()
 		.min(8, "Must be at least 8 characters")
-		.oneOf([Yup.ref("password"), null], "Passwords must match"),
+		.oneOf([Yup.ref("password"), null], "Passwords must match")
+		.required("Required"),
 });
 
 const RegisterPage = () => {
 	const onSubmit = async (values, { setSubmitting }) => {
 		const response = await fetch("http://localhost:4000/register", {
 			method: "POST",
+			credentials: "include",
 			headers: {
 				"Content-Type": "application/json",
 			},
