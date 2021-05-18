@@ -5,10 +5,7 @@ import Layout from "../components/layout";
 import Input from "../components/input";
 
 const LoginFormValidation = Yup.object({
-	email: Yup.string().matches(
-		/(\W|^)[\w.-]{0,25}@uci\.edu(\W|$)/,
-		"Must be valid UCI email address"
-	),
+	userId: Yup.string(),
 	password: Yup.string(),
 });
 
@@ -16,13 +13,16 @@ const LoginPage = () => {
 	const onSubmit = async (values, { setSubmitting }) => {
 		const response = await fetch("http://localhost:4000/login", {
 			method: "POST",
+			credentials: "include",
 			headers: {
 				"Content-Type": "application/json",
 			},
 			body: JSON.stringify(values),
 		});
 		const data = await response.json();
-		console.log(data);
+		if (data !== null) {
+			data.forEach(console.log);
+		}
 		setSubmitting(false);
 	};
 
@@ -31,14 +31,14 @@ const LoginPage = () => {
 			<h1>Login</h1>
 			<Formik
 				initialValues={{
-					email: "",
+					userId: "",
 					password: "",
 				}}
 				validationSchema={LoginFormValidation}
 				onSubmit={onSubmit}
 			>
 				<Form autoComplete="off">
-					<Input label="Email Address: " name="email" type="email" />
+					<Input label="UCInetID: " name="userId" type="text" />
 					<Input label="Password: " name="password" type="password" />
 					<div className="text-center">
 						<button

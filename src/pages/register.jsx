@@ -1,4 +1,5 @@
 import React from "react";
+import { parseISO } from "date-fns";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import Layout from "../components/layout";
@@ -32,6 +33,7 @@ const RegisterFormValidation = Yup.object({
 });
 
 const RegisterPage = () => {
+	// Should add a handle error function for serverside errors
 	const onSubmit = async (values, { setSubmitting }) => {
 		const response = await fetch("http://localhost:4000/register", {
 			method: "POST",
@@ -42,10 +44,13 @@ const RegisterPage = () => {
 			body: JSON.stringify({
 				...values,
 				userId: values.email.substring(0, values.email.indexOf("@uci.edu")),
+				dob: parseISO(values.dob),
 			}),
 		});
 		const data = await response.json();
-		console.log(data);
+		if (data !== null) {
+			data.forEach(console.log);
+		}
 		setSubmitting(false);
 	};
 
