@@ -4,6 +4,7 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import Layout from "../components/layout";
 import Input from "../components/input";
+import Button from "../components/button";
 
 const RegisterFormValidation = Yup.object({
 	firstName: Yup.string()
@@ -56,7 +57,7 @@ const RegisterPage = () => {
 
 	return (
 		<Layout>
-			<h1>Sign Up</h1>
+			<h1>Registration Form</h1>
 			<Formik
 				initialValues={{
 					firstName: "",
@@ -71,6 +72,7 @@ const RegisterPage = () => {
 				onSubmit={onSubmit}
 			>
 				<Form autoComplete="off">
+					<h2>Basic Information</h2>
 					<Input
 						label="First Name: "
 						name="firstName"
@@ -84,11 +86,12 @@ const RegisterPage = () => {
 						placeholder="Anteater"
 					/>
 					<Input label="Date of Birth: " name="dob" type="date" />
+					<h2>Contact Information</h2>
 					<Input
-						label="Phone Number: "
+						label="Phone Number (Optional): "
 						name="phone"
 						type="tel"
-						placeholder="510-123-4567"
+						placeholder="949-824-5011"
 					/>
 					<Input
 						label="Email Address: "
@@ -96,6 +99,7 @@ const RegisterPage = () => {
 						type="email"
 						placeholder="petr@uci.edu"
 					/>
+					<h2>Password Creation</h2>
 					<Input label="Password: " name="password" type="password" />
 					<Input
 						label="Confirm Password: "
@@ -103,12 +107,7 @@ const RegisterPage = () => {
 						type="password"
 					/>
 					<div className="text-center">
-						<button
-							className="bg-blue-700 text-white rounded-sm shadow-sm px-4 py-2 m-2"
-							type="submit"
-						>
-							Submit
-						</button>
+						<Button type="submit">Submit</Button>
 					</div>
 				</Form>
 			</Formik>
