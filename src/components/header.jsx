@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { useUser } from "../utils/fetcher";
 
-const NavLink = React.forwardRef(({ onClick, href, children }, ref) => {
+const ListItem = React.forwardRef(({ onClick, href, children }, ref) => {
 	return (
 		<a href={href} onClick={onClick} ref={ref}>
 			<li>{children}</li>
@@ -11,11 +11,22 @@ const NavLink = React.forwardRef(({ onClick, href, children }, ref) => {
 	);
 });
 
+const NavLink = ({ href, children }) => {
+	return (
+		<Link href={href} passHref>
+			<ListItem>{children}</ListItem>
+		</Link>
+	);
+};
+
 const Header = () => {
 	const { isError } = useUser();
 	const [open, setOpen] = useState(false);
 
 	const signedIn = !isError;
+	const toggleMenu = () => {
+		setOpen(!open);
+	};
 
 	return (
 		<header className="min-w-full bg-black text-white px-2 py-4 fixed z-10">
@@ -32,7 +43,7 @@ const Header = () => {
 				<div className="flex-shrink-0">
 					<div
 						className="flex justify-center items-center text-4xl p-2"
-						onClick={() => setOpen(!open)}
+						onClick={toggleMenu}
 					>
 						<FontAwesomeIcon icon={"bars"} />
 					</div>
@@ -42,30 +53,30 @@ const Header = () => {
 			{open && (
 				<nav>
 					<ul>
-						<Link href="/" passHref>
-							<NavLink>Home</NavLink>
-						</Link>
-						<Link href="/about" passHref>
-							<NavLink>About</NavLink>
-						</Link>
+						<NavLink href="/" onClick={toggleMenu}>
+							Home
+						</NavLink>
+						<NavLink href="/about" onClick={toggleMenu}>
+							About
+						</NavLink>
 						{!signedIn && (
 							<>
-								<Link href="/register" passHref>
-									<NavLink>Register</NavLink>
-								</Link>
-								<Link href="/login" passHref>
-									<NavLink>Login</NavLink>
-								</Link>
+								<NavLink href="/register" onClick={toggleMenu}>
+									Register
+								</NavLink>
+								<NavLink href="/login" onClick={toggleMenu}>
+									Login
+								</NavLink>
 							</>
 						)}
 						{signedIn && (
 							<>
-								<Link href="/user" passHref>
-									<NavLink>My Profile</NavLink>
-								</Link>
-								<Link href="/logout" passHref>
-									<NavLink>Logout</NavLink>
-								</Link>
+								<NavLink href="/user" onClick={toggleMenu}>
+									My Profile
+								</NavLink>
+								<NavLink href="/logout" onClick={toggleMenu}>
+									Logout
+								</NavLink>
 							</>
 						)}
 					</ul>

@@ -9,7 +9,7 @@ const fetcher = async (url) => {
 };
 
 export const useUser = () => {
-	const { data, error } = useSWR("http://localhost:4000/user/summary", fetcher);
+	const { data, error } = useSWR("http://localhost:4000/user/info", fetcher);
 
 	return {
 		data,
