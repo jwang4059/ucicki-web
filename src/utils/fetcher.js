@@ -9,11 +9,11 @@ const fetcher = async (url) => {
 };
 
 export const useUser = () => {
-	const { data, error } = useSWR("http://localhost:4000/settings", fetcher);
+	const { data, error } = useSWR("http://localhost:4000/user/summary", fetcher);
 
 	return {
 		data,
 		isLoading: !error && !data,
-		isError: error,
+		isError: error || data?.status === "failed",
 	};
 };

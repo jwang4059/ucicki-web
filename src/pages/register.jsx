@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useRouter } from "next/router";
 import { parseISO } from "date-fns";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
@@ -34,6 +35,9 @@ const RegisterFormValidation = Yup.object({
 });
 
 const RegisterPage = () => {
+	const router = useRouter();
+	const [error, setError] = useState("");
+
 	// Should add a handle error function for serverside errors
 	const onSubmit = async (values, { setSubmitting }) => {
 		const response = await fetch("http://localhost:4000/register", {
@@ -49,9 +53,13 @@ const RegisterPage = () => {
 			}),
 		});
 		const data = await response.json();
-		if (data !== null) {
-			data.forEach(console.log);
+
+		if (data.status === "success") {
+			router.push("/");
+		} else {
+			setError(data.message);
 		}
+
 		setSubmitting(false);
 	};
 
@@ -109,6 +117,11 @@ const RegisterPage = () => {
 					<div className="text-center">
 						<Button type="submit">Submit</Button>
 					</div>
+					{error ? (
+						<p className="text-center text-red-700 text-sm font-medium">
+							{error}
+						</p>
+					) : null}
 				</Form>
 			</Formik>
 		</Layout>

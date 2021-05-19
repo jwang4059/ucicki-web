@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 import { Formik, Form, useField } from "formik";
 import Layout from "../components/layout";
 
@@ -22,6 +23,7 @@ const Input = ({ label, ...props }) => {
 };
 
 const LoginPage = () => {
+	const router = useRouter();
 	const [error, setError] = useState(null);
 
 	const onSubmit = async (values, { setSubmitting }) => {
@@ -34,9 +36,13 @@ const LoginPage = () => {
 			body: JSON.stringify(values),
 		});
 		const data = await response.json();
-		if (data !== null) {
-			setError(data.message || "Invalid user credentials");
+
+		if (data.status === "success") {
+			router.push("/");
+		} else {
+			setError(data.message);
 		}
+
 		setSubmitting(false);
 	};
 
@@ -46,7 +52,11 @@ const LoginPage = () => {
 				<h1 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
 					Sign in to your account
 				</h1>
-				<p className="text-center text-red-700 text-sm font-medium">{error}</p>
+				{error ? (
+					<p className="text-center text-red-700 text-sm font-medium">
+						{error}
+					</p>
+				) : null}
 				<div className="m-4">
 					<Formik
 						initialValues={{
