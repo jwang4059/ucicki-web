@@ -45,7 +45,7 @@ const Header = () => {
 	};
 
 	return (
-		<header className="min-w-full bg-black text-white px-2 py-4 fixed z-10">
+		<header className="min-w-full bg-black text-white px-2 py-4 fixed z-50">
 			<div className="flex">
 				<div className="flex-grow md:flex-grow-0 md:flex-shrink-0">
 					<a href="https://www.circlek.org/">
