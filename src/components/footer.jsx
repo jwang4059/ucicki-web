@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Icon = ({ href, icon }) => (
 	<a href={href} target="__blank" rel="noreferrer">
-		<div className="flex justify-center items-center h-11 w-11 p-2 border-2 m-2 bg-gray-200 border-white rounded-full">
+		<div className="flex justify-center items-center text-lg p-2 border-2 m-2 bg-gray-200 border-white rounded-full">
 			<FontAwesomeIcon icon={icon} />
 		</div>
 	</a>
@@ -34,7 +34,7 @@ const FooterSection = ({ title, children }) => (
 const Footer = (props) => {
 	return (
 		<footer {...props}>
-			<section className="bg-gray-400 flex flex-col text-center">
+			<section className="grid grid-cols-1 md:grid-cols-3 bg-gray-400 text-center">
 				<FooterSection title="Kiwanis">
 					<div className="p-2">
 						<Kiwani href="http://www.kiwanisclublakeforest.org/" icon="leaf">
@@ -49,7 +49,7 @@ const Footer = (props) => {
 					</div>
 				</FooterSection>
 				<FooterSection title="Circle K">
-					<div className="flex justify-center p-2">
+					<div className="flex flex-wrap md:flex-nowrap justify-center p-2">
 						<Emblem
 							href="https://www.facebook.com/groups/cnhckicitrus/"
 							src="https://i.imgur.com/fsG85vT.png"
@@ -68,7 +68,7 @@ const Footer = (props) => {
 					</div>
 				</FooterSection>
 				<FooterSection title="Connect With UCI CKI">
-					<div className="flex justify-center items-center p-2">
+					<div className="flex flex-wrap justify-center items-center p-2">
 						<Icon href="#" icon="users" />
 						<Icon
 							href="http://www.ucicirclek.com/facebook/"
