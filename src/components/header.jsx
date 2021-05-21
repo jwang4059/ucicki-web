@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useUser } from "../utils/fetcher";
 
 const ListItem = React.forwardRef(({ onClick, href, children }, ref) => {
@@ -16,6 +17,27 @@ const NavLink = ({ href, children }) => {
 		<Link href={href} passHref>
 			<ListItem>{children}</ListItem>
 		</Link>
+	);
+};
+
+const LogoutButton = () => {
+	const router = useRouter();
+	const logout = async () => {
+		await fetch("http://localhost:4000/logout", {
+			method: "POST",
+			credentials: "include",
+			headers: {
+				"Content-Type": "application/json",
+			},
+		});
+
+		router.reload();
+	};
+
+	return (
+		<button className="text-left" onClick={logout}>
+			<li>Logout</li>
+		</button>
 	);
 };
 
@@ -52,7 +74,7 @@ const Header = () => {
 
 			{open && (
 				<nav>
-					<ul>
+					<ul className="flex flex-col">
 						<NavLink href="/" onClick={toggleMenu}>
 							Home
 						</NavLink>
@@ -74,9 +96,7 @@ const Header = () => {
 								<NavLink href="/user" onClick={toggleMenu}>
 									My Profile
 								</NavLink>
-								<NavLink href="/logout" onClick={toggleMenu}>
-									Logout
-								</NavLink>
+								<LogoutButton onClick={toggleMenu} />
 							</>
 						)}
 					</ul>
