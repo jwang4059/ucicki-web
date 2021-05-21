@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import Error from "next/error";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import Layout from "../../components/layout";
@@ -18,12 +19,34 @@ const ChangePasswordFormValidation = Yup.object({
 
 const ChangePasswordPage = () => {
 	const router = useRouter();
-	const [error, setError] = useState("");
-
-	// Page should be 404 error if not in server
+	const [isLoading, setIsLoading] = useState(true); // Makes sure token is valid before loading page
+	const [errorCode, setErrorCode] = useState(null); // Error code if token is invalid
+	const [serverError, setServerError] = useState(""); // Used to display errors from server
 
 	const token =
 		typeof router.query.token === "string" ? router.query.token : "";
+
+	useEffect(() => {
+		const validateToken = async () => {
+			const response = await fetch(
+				"http://localhost:4000/change-password-token",
+				{
+					method: "POST",
+					credentials: "include",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify({
+						token,
+					}),
+				}
+			);
+			setErrorCode(response.ok ? null : response.status);
+			setIsLoading(false);
+		};
+
+		if (token) validateToken();
+	}, [token]);
 
 	const onSubmit = async (values, { setSubmitting }) => {
 		const response = await fetch("http://localhost:4000/change-password", {
@@ -39,11 +62,19 @@ const ChangePasswordPage = () => {
 		if (data.status === "success") {
 			router.push("/");
 		} else {
-			setError(data.message);
+			setServerError(data.message);
 		}
 
 		setSubmitting(false);
 	};
+
+	if (errorCode) {
+		return <Error statusCode={errorCode} />;
+	}
+
+	if (isLoading) {
+		return null;
+	}
 
 	return (
 		<Layout>
@@ -66,9 +97,9 @@ const ChangePasswordPage = () => {
 					<div className="text-center">
 						<Button type="submit">Submit</Button>
 					</div>
-					{error ? (
+					{serverError ? (
 						<p className="text-center text-red-700 text-sm font-medium">
-							{error}
+							{serverError}
 						</p>
 					) : null}
 				</Form>
