@@ -1,7 +1,16 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 import { Formik, Form, useField } from "formik";
 import Layout from "../components/layout";
+
+const CustomLink = React.forwardRef(({ onClick, href, children }, ref) => {
+	return (
+		<a href={href} onClick={onClick} ref={ref}>
+			{children}
+		</a>
+	);
+});
 
 const Input = ({ label, ...props }) => {
 	const [field] = useField(props);
@@ -90,6 +99,12 @@ const LoginPage = () => {
 							</div>
 						</Form>
 					</Formik>
+					<Link href="/forgot-password" passHref>
+						<CustomLink>Forgot Password?</CustomLink>
+					</Link>
+					<Link href="/register" passHref>
+						<CustomLink>Don't have an account? Sign up</CustomLink>
+					</Link>
 				</div>
 			</div>
 		</Layout>
