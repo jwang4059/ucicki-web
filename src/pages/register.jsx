@@ -65,65 +65,71 @@ const RegisterPage = () => {
 
 	return (
 		<Layout>
-			<h1>Registration Form</h1>
-			<Formik
-				initialValues={{
-					firstName: "",
-					lastName: "",
-					dob: "",
-					phone: "",
-					email: "",
-					password: "",
-					passwordConfirmation: "",
-				}}
-				validationSchema={RegisterFormValidation}
-				onSubmit={onSubmit}
-			>
-				<Form autoComplete="off">
-					<h2>Basic Information</h2>
-					<Input
-						label="First Name: "
-						name="firstName"
-						type="text"
-						placeholder="Peter"
-					/>
-					<Input
-						label="Last Name: "
-						name="lastName"
-						type="text"
-						placeholder="Anteater"
-					/>
-					<Input label="Date of Birth: " name="dob" type="date" />
-					<h2>Contact Information</h2>
-					<Input
-						label="Phone Number (Optional): "
-						name="phone"
-						type="tel"
-						placeholder="949-824-5011"
-					/>
-					<Input
-						label="Email Address: "
-						name="email"
-						type="email"
-						placeholder="petr@uci.edu"
-					/>
-					<h2>Password Creation</h2>
-					<Input label="Password: " name="password" type="password" />
-					<Input
-						label="Confirm Password: "
-						name="passwordConfirmation"
-						type="password"
-					/>
-					<div className="text-center">
-						<Button type="submit">Submit</Button>
-					</div>
-					{error ? (
-						<p className="text-center text-red-700 text-sm font-medium">
-							{error}
-						</p>
-					) : null}
-				</Form>
-			</Formik>
+			<div className="min-h-screen flex justify-center">
+				<div className="w-full max-w-2xl mx-4 my-6">
+					<h1 className="text-center text-3xl font-extrabold text-gray-900 mb-4">
+						Registration Form
+					</h1>
+					<Formik
+						initialValues={{
+							firstName: "",
+							lastName: "",
+							dob: "",
+							phone: "",
+							email: "",
+							password: "",
+							passwordConfirmation: "",
+						}}
+						validationSchema={RegisterFormValidation}
+						onSubmit={onSubmit}
+					>
+						<Form className="flex flex-col m-2" autoComplete="off">
+							{/* Basic Information */}
+							<Input
+								label="First Name: "
+								name="firstName"
+								type="text"
+								placeholder="Peter"
+							/>
+							<Input
+								label="Last Name: "
+								name="lastName"
+								type="text"
+								placeholder="Anteater"
+							/>
+							<Input label="Date of Birth: " name="dob" type="date" />
+							{/* Contact Information */}
+							<Input
+								label="Phone Number (Optional): "
+								name="phone"
+								type="tel"
+								placeholder="949-824-5011"
+							/>
+							<Input
+								label="Email Address: "
+								name="email"
+								type="email"
+								placeholder="petr@uci.edu"
+							/>
+							{/* Password Creation */}
+							<Input label="Password: " name="password" type="password" />
+							<Input
+								label="Confirm Password: "
+								name="passwordConfirmation"
+								type="password"
+							/>
+							<div className="text-center">
+								<Button type="submit">Submit</Button>
+							</div>
+							{error ? (
+								<p className="text-center text-red-700 text-sm font-medium">
+									{error}
+								</p>
+							) : null}
+						</Form>
+					</Formik>
+				</div>
+			</div>
 		</Layout>
 	);
 };

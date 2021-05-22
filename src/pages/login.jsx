@@ -28,6 +28,7 @@ const LoginPage = () => {
 	const [error, setError] = useState(null);
 
 	const onSubmit = async (values, { setSubmitting }) => {
+		setError(null);
 		const response = await fetch("http://localhost:4000/login", {
 			method: "POST",
 			credentials: "include",
@@ -49,50 +50,50 @@ const LoginPage = () => {
 
 	return (
 		<Layout>
-			<div className="flex justify-center">
+			<div className="min-h-screen flex justify-center">
 				<div className="w-full max-w-xl mx-4 my-6">
-					<h1 className="text-center text-3xl font-extrabold text-gray-900">
-						Sign in to your account
-					</h1>
-					{error ? (
-						<p className="text-center text-red-700 text-sm font-medium">
-							{error}
-						</p>
-					) : null}
-					<div className="my-4">
-						<Formik
-							initialValues={{
-								userId: "",
-								password: "",
-							}}
-							onSubmit={onSubmit}
-						>
-							<Form autoComplete="off">
-								<Input
-									label="UCInetID"
-									name="userId"
-									type="text"
-									placeholder="UCInetID"
-									required
-								/>
-								<Input
-									label="Password"
-									name="password"
-									type="password"
-									placeholder="Password"
-									required
-								/>
-								<div className="text-center">
-									<button
-										className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 my-4"
-										type="submit"
-									>
-										Submit
-									</button>
-								</div>
-							</Form>
-						</Formik>
+					<div className="h-14">
+						<h1 className="text-center text-3xl font-extrabold text-gray-900">
+							Sign in to your account
+						</h1>
+						{error ? (
+							<p className="text-center text-red-700 text-sm font-medium">
+								{error}
+							</p>
+						) : null}
 					</div>
+					<Formik
+						initialValues={{
+							userId: "",
+							password: "",
+						}}
+						onSubmit={onSubmit}
+					>
+						<Form className="my-4" autoComplete="off">
+							<Input
+								label="UCInetID"
+								name="userId"
+								type="text"
+								placeholder="UCInetID"
+								required
+							/>
+							<Input
+								label="Password"
+								name="password"
+								type="password"
+								placeholder="Password"
+								required
+							/>
+							<div className="text-center">
+								<button
+									className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 my-4"
+									type="submit"
+								>
+									Submit
+								</button>
+							</div>
+						</Form>
+					</Formik>
 					<div className="flex flex-wrap justify-between my-2 text-sm font-medium text-indigo-600 hover:text-indigo-500">
 						<div className="mr-8 mb-2">
 							<Link href="/forgot-password">Forgot Password?</Link>
