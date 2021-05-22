@@ -25,21 +25,27 @@ const ForgotPasswordPage = () => {
 
 	return (
 		<Layout>
-			<h1>Forgot Password Form</h1>
-			<Formik
-				initialValues={{
-					email: "",
-				}}
-				validationSchema={ForgotPasswordFormValidation}
-				onSubmit={onSubmit}
-			>
-				<Form autoComplete="off">
-					<Input label="Email Address: " name="email" type="email" />
-					<div className="text-center">
-						<Button type="submit">Submit</Button>
-					</div>
-				</Form>
-			</Formik>
+			<div className="min-h-screen flex justify-center">
+				<div className="w-full max-w-2xl mx-4 my-6">
+					<h1 className="text-center text-3xl font-extrabold text-gray-900 mb-4">
+						Forgot Password Form
+					</h1>
+					<Formik
+						initialValues={{
+							email: "",
+						}}
+						validationSchema={ForgotPasswordFormValidation}
+						onSubmit={onSubmit}
+					>
+						<Form autoComplete="off">
+							<Input label="Email Address: " name="email" type="email" />
+							<div className="text-center">
+								<Button type="submit">Submit</Button>
+							</div>
+						</Form>
+					</Formik>
+				</div>
+			</div>
 		</Layout>
 	);
 };
