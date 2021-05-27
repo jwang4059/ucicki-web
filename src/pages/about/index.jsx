@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "../components/layout";
+import Layout from "../../components/layout";
 
 const Tenet = ({ title, text, imageSrc, imageAlt }) => (
 	<section className="flex flex-col justify-center items-center p-6">
