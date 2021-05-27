@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "../../components/layout";
 
 const Profile = ({ name, position, email, imgSrc, imgAlt }) => (
-	<div className="flex flex-col bg-blue-300 p-2 my-2">
+	<div className="flex flex-col bg-blue-300 p-2 col-span-1">
 		<div className="flex-shrink-0 flex justify-center items-center">
 			<img
 				className="w-64 h-64 object-cover rounded-full"
@@ -18,26 +18,46 @@ const Profile = ({ name, position, email, imgSrc, imgAlt }) => (
 	</div>
 );
 
+const BoardSection = ({ title, children }) => {
+	return (
+		<section className="mb-8">
+			<h3 className="text-xl font-bold text-center mb-4">{title}</h3>
+			<div className="grid grid-cols-1 md:grid-cols-2 gap-4">{children}</div>
+		</section>
+	);
+};
+
 const BoardPage = () => {
 	return (
 		<Layout>
 			<div className="flex justify-center items-center p-6">
 				<div className="max-w-6xl">
 					<h1 className="text-3xl font-extrabold mb-4">UCI Circle K Board</h1>
-					<h2 className="text-2xl font-bold mb-2">About Board Members</h2>
-					<p className="text-lg">
-						The Circle K Executive and Appointed Board is composed of members
-						who are dedicated to guiding their fellow members the three tenets
-						of Circle K International, service, leadership, and fellowship,
-						through opportunities in an effort to create a worthwhole college
-						experience. Each board member is in charge of a different aspect of
-						the club, and together form the backbone of UCI Circle K. Click on
-						each board member to see his or her Circle K profile page!
-					</p>
 					<section>
-						<h3 className="text-xl font-bold text-center mb-4">
-							Executive Board
-						</h3>
+						<h2 className="text-2xl font-bold mb-2">About Board Members</h2>
+						<p className="text-lg mb-4">
+							UCI Circle K's Board is a group of current members who are
+							dedicated to guiding and serving the club. By upholding the three
+							tenets of Circle K International (service, leadership, and
+							fellowship), they are able to create new opportunities for general
+							members and help enhance their college experience.
+						</p>
+						<p className="text-lg mb-4">
+							UCI Circle K's board is composed of three different groups. These
+							three groups are known as the Elective Board, the Appointed Board,
+							and the Family Heads. Each group is in charge of a different
+							aspect of the club and work together to give members the best
+							possible experience. Although they are separated into three
+							different groups, each board member is responsible for fulfilling
+							their positiion, providing for their family, organizing family
+							socials, and serving as role models and mentors to their littles.
+						</p>
+						<p className="text-lg mb-4">
+							To learn more about the board, feel free to reach out and contact
+							them.
+						</p>
+					</section>
+					<BoardSection title="Executive Board">
 						<Profile
 							name="Ruhiyah Pareja"
 							position="President"
@@ -68,9 +88,8 @@ const BoardPage = () => {
 							email="ckitreasurer.uci@gmail.com"
 							imgSrc="https://i.imgur.com/HXuOqZh.jpg?1"
 						/>
-					</section>
-					<section>
-						<h3 className="text-center text-lg font-bold">Appointed Board</h3>
+					</BoardSection>
+					<BoardSection title="Appointed Board">
 						<Profile
 							name="Izzabella Ramiscal"
 							position="Fundraising Chair"
@@ -179,13 +198,123 @@ const BoardPage = () => {
 							email="media.ucicki@gmail.com"
 							imgSrc="https://i.imgur.com/7SrLubA.jpg"
 						/>
-						{/* <Profile
-							name=""
-							position=""
-							email=""
-							imgSrc=""
-						/> */}
-					</section>
+					</BoardSection>
+					<BoardSection title="Family Heads">
+						<Profile
+							name="Adeline Cheng"
+							position="Family Head"
+							email="adelinc1@uci.edu"
+							imgSrc="https://www.ucicirclek.com/public/assets2/img/default_pic20_21.png"
+						/>
+						<Profile
+							name="Amanda Lin"
+							position="Family Head"
+							email="alin90727@gmail.com"
+							imgSrc="https://www.ucicirclek.com/public/assets2/img/default_pic20_21.png"
+						/>
+						<Profile
+							name="Ashwin Nambiar"
+							position="Family Head"
+							email="ashwinrn@uci.edu"
+							imgSrc="https://www.ucicirclek.com/public/assets2/img/default_pic20_21.png"
+						/>
+						<Profile
+							name="Brandon Kincaid"
+							position="Family Head"
+							email="kincaidb@uci.edu"
+							imgSrc="https://i.imgur.com/8yqBuTM.jpg"
+						/>
+						<Profile
+							name="Coby Saykouman"
+							position="Family Head"
+							email="cobysay@gmail.com"
+							imgSrc="https://www.ucicirclek.com/public/assets2/img/default_pic20_21.png"
+						/>
+						<Profile
+							name="Danny Yi"
+							position="Family Head"
+							email="dtyi@uci.edu"
+							imgSrc="https://i.imgur.com/aY5pfnF.jpg"
+						/>
+						<Profile
+							name="David Yu"
+							position="Family Head"
+							email="davidy9@uci.edu"
+							imgSrc="https://www.ucicirclek.com/public/assets2/img/default_pic20_21.png"
+						/>
+						<Profile
+							name="Edith Crisostomo"
+							position="Family Head"
+							email="eacrisos@uci.edu"
+							imgSrc="https://i.imgur.com/5g2LoTk.jpg"
+						/>
+						<Profile
+							name="Hayden Poulain"
+							position="Family Head"
+							email="hpoulain@uci.edu"
+							imgSrc="https://www.ucicirclek.com/public/assets2/img/default_pic20_21.png"
+						/>
+						<Profile
+							name="Hema Merugumala"
+							position="Family Head"
+							email="hmerugum@uci.edu"
+							imgSrc="https://www.ucicirclek.com/public/assets2/img/default_pic20_21.png"
+						/>
+						<Profile
+							name="Jessica Medina"
+							position="Family Head"
+							email="jcmedin2@uci.edu"
+							imgSrc="https://www.ucicirclek.com/public/assets2/img/default_pic20_21.png"
+						/>
+						<Profile
+							name="Joyce Wu"
+							position="Family Head"
+							email="joycew11@uci.edu"
+							imgSrc="https://i.imgur.com/csYzF9U.jpg"
+						/>
+						<Profile
+							name="Katherine Hoang"
+							position="Family Head"
+							email="yourstrulykatherine@gmail.com"
+							imgSrc="https://www.ucicirclek.com/public/assets2/img/default_pic20_21.png"
+						/>
+						<Profile
+							name="Keith Wong"
+							position="Family Head"
+							email="keithmw1@uci.edu"
+							imgSrc="https://www.ucicirclek.com/public/assets2/img/default_pic20_21.png"
+						/>
+						<Profile
+							name="Kelsy Gonzalez"
+							position="Family Head"
+							email="kelsyrg@uci.edu"
+							imgSrc="https://www.ucicirclek.com/public/assets2/img/default_pic20_21.png"
+						/>
+						<Profile
+							name="Quinny Cao"
+							position="Family Head"
+							email="caoql@uci.edu"
+							imgSrc="https://www.ucicirclek.com/public/assets2/img/default_pic20_21.png"
+						/>
+						<Profile
+							name="Rishi Godugu"
+							position="Family Head"
+							email="godugu.rishi@gmail.com"
+							imgSrc="https://www.ucicirclek.com/public/assets2/img/default_pic20_21.png"
+						/>
+						<Profile
+							name="Terry Nguyen"
+							position="Family Head"
+							email="terryhn1@uci.edu"
+							imgSrc="https://i.imgur.com/rPBoSfBt.jpg"
+						/>
+						<Profile
+							name="Zitong Xie"
+							position="Family Head"
+							email="ZitongX1@uci.edu"
+							imgSrc="https://www.ucicirclek.com/public/assets2/img/default_pic20_21.png"
+						/>
+					</BoardSection>
 				</div>
 			</div>
 		</Layout>
