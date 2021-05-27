@@ -19,12 +19,11 @@ const ChangePasswordFormValidation = Yup.object({
 
 const ChangePasswordPage = () => {
 	const router = useRouter();
+	const [token, setToken] = useState("");
+	const [submitted, setSubmitted] = useState(false);
 	const [isLoading, setIsLoading] = useState(true); // Makes sure token is valid before loading page
 	const [errorCode, setErrorCode] = useState(null); // Error code if token is invalid
 	const [serverError, setServerError] = useState(""); // Used to display errors from server
-
-	const token =
-		typeof router.query.token === "string" ? router.query.token : "";
 
 	useEffect(() => {
 		const validateToken = async () => {
@@ -37,7 +36,7 @@ const ChangePasswordPage = () => {
 						"Content-Type": "application/json",
 					},
 					body: JSON.stringify({
-						token,
+						token: router.query.token,
 					}),
 				}
 			);
@@ -45,8 +44,11 @@ const ChangePasswordPage = () => {
 			setIsLoading(false);
 		};
 
-		if (token) validateToken();
-	}, [token]);
+		if (router.isReady && router.query.token) {
+			setToken(router.query.token);
+			validateToken();
+		}
+	}, [router]);
 
 	const onSubmit = async (values, { setSubmitting }) => {
 		const response = await fetch("http://localhost:4000/change-password", {
@@ -60,7 +62,7 @@ const ChangePasswordPage = () => {
 		const data = await response.json();
 
 		if (data.status === "success") {
-			router.push("/");
+			setSubmitted(true);
 		} else {
 			setServerError(data.message);
 		}
@@ -78,32 +80,56 @@ const ChangePasswordPage = () => {
 
 	return (
 		<Layout>
-			<h1>Create New Password</h1>
-			<Formik
-				initialValues={{
-					password: "",
-					passwordConfirmation: "",
-				}}
-				validationSchema={ChangePasswordFormValidation}
-				onSubmit={onSubmit}
-			>
-				<Form autoComplete="off">
-					<Input label="Password: " name="password" type="password" />
-					<Input
-						label="Confirm Password: "
-						name="passwordConfirmation"
-						type="password"
-					/>
-					<div className="text-center">
-						<Button type="submit">Submit</Button>
+			<div className="min-h-screen">
+				<div className="flex justify-center">
+					<div className="w-full max-w-2xl mx-4 my-6">
+						<h1 className="text-center text-3xl font-extrabold text-gray-900 mb-4">
+							Create New Password
+						</h1>
+						<Formik
+							initialValues={{
+								password: "",
+								passwordConfirmation: "",
+							}}
+							validationSchema={ChangePasswordFormValidation}
+							onSubmit={onSubmit}
+						>
+							{({ isSubmitting }) =>
+								!submitted ? (
+									<Form autoComplete="off">
+										<Input label="Password: " name="password" type="password" />
+										<Input
+											label="Confirm Password: "
+											name="passwordConfirmation"
+											type="password"
+										/>
+										<div className="text-center">
+											<Button type="submit">Submit</Button>
+										</div>
+										{serverError ? (
+											<p className="text-center text-red-700 text-sm font-medium">
+												{serverError}
+											</p>
+										) : null}
+									</Form>
+								) : (
+									<div className="text-center">
+										<p className="bg-green-200 border-green-500 border-2 py-2">
+											Password has been updated
+										</p>
+										<Button
+											isLoading={isSubmitting}
+											onClick={() => router.push("/login")}
+										>
+											Go to Login
+										</Button>
+									</div>
+								)
+							}
+						</Formik>
 					</div>
-					{serverError ? (
-						<p className="text-center text-red-700 text-sm font-medium">
-							{serverError}
-						</p>
-					) : null}
-				</Form>
-			</Formik>
+				</div>
+			</div>
 		</Layout>
 	);
 };

@@ -6,12 +6,13 @@ import {
 	faLeaf,
 	faAnchor,
 	faBars,
+	faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
 import Head from "next/head";
 import Header from "./header";
 import Footer from "./footer";
 
-library.add(fab, faUsers, faLeaf, faAnchor, faBars);
+library.add(fab, faUsers, faLeaf, faAnchor, faBars, faSpinner);
 
 export const siteTitle = "UCICKI Website";
 
