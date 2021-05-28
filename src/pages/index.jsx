@@ -11,6 +11,7 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 const Carousel = () => {
 	return (
 		<Swiper
+			id="homeCarousel"
 			tag="section"
 			wrapperTag="ul"
 			navigation

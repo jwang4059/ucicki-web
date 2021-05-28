@@ -2,24 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-.swiper-container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
+.swiper-slide {
+	list-style: none;
+}
+
+#homeCarousel {
 	height: 100vh;
 	max-height: 100vh;
 	margin-top: -6rem;
-	/* margin-bottom: 16px;  */
-}
-
-.swiper-wrapper {
-	padding: 0;
-	margin: 0;
-}
-
-.swiper-slide {
-	width: 100%;
-	height: 100%;
-	list-style: none;
 }
