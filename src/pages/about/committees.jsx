@@ -12,7 +12,7 @@ const CommitteeSection = ({ name, heads, children, imgSrc, imgAlt }) => {
 				/>
 			</div>
 			<div className="flex-grow flex-flex-col p-2">
-				<h2 className="text-xl font-semibold mb-2">{name}</h2>
+				<h2 className="text-xl text-blue-900 font-semibold mb-2">{name}</h2>
 				<span className="block mb-4">
 					Heads: <em>{heads}</em>
 				</span>

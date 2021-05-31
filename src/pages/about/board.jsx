@@ -2,15 +2,15 @@ import React from "react";
 import Layout from "../../components/layout";
 
 const Profile = ({ name, position, email, imgSrc, imgAlt }) => (
-	<div className="flex flex-col bg-blue-300 p-2 col-span-1">
+	<div className="flex flex-col md:flex-row p-2 col-span-1">
 		<div className="flex-shrink-0 flex justify-center items-center">
 			<img
-				className="w-64 h-64 object-cover rounded-full"
+				className="w-52 h-52 object-cover rounded-full"
 				src={imgSrc}
 				alt={imgAlt || name || ""}
 			/>
 		</div>
-		<div className="flex-grow flex flex-col justify-center items-center">
+		<div className="flex-grow flex flex-col justify-center items-center text-center">
 			<h4 className="text-lg font-bold">{name}</h4>
 			<em>{position}</em>
 			<span>{email}</span>
