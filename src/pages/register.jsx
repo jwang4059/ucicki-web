@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { parseISO } from "date-fns";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
+
 import Layout from "../components/layout";
 import Input from "../components/input";
 import Button from "../components/button";
@@ -38,7 +39,6 @@ const RegisterPage = () => {
 	const router = useRouter();
 	const [error, setError] = useState("");
 
-	// Should add a handle error function for serverside errors
 	const onSubmit = async (values, { setSubmitting }) => {
 		const response = await fetch("http://localhost:4000/register", {
 			method: "POST",
@@ -64,10 +64,10 @@ const RegisterPage = () => {
 	};
 
 	return (
-		<Layout>
+		<Layout title="Register">
 			<div className="min-h-screen flex justify-center">
 				<div className="w-full max-w-2xl mx-4 my-6">
-					<h1 className="text-center text-3xl font-extrabold text-gray-900 mb-4">
+					<h1 className="text-center text-3xl font-extrabold text-gray-900 mb-8">
 						Registration Form
 					</h1>
 					<Formik
@@ -98,6 +98,7 @@ const RegisterPage = () => {
 								placeholder="Anteater"
 							/>
 							<Input label="Date of Birth: " name="dob" type="date" />
+
 							{/* Contact Information */}
 							<Input
 								label="Phone Number (Optional): "
@@ -111,6 +112,7 @@ const RegisterPage = () => {
 								type="email"
 								placeholder="petr@uci.edu"
 							/>
+
 							{/* Password Creation */}
 							<Input label="Password: " name="password" type="password" />
 							<Input
@@ -121,6 +123,8 @@ const RegisterPage = () => {
 							<div className="text-center">
 								<Button type="submit">Submit</Button>
 							</div>
+
+							{/* Serverside Error */}
 							{error ? (
 								<p className="text-center text-red-700 text-sm font-medium">
 									{error}

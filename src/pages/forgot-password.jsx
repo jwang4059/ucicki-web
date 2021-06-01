@@ -29,7 +29,7 @@ const ForgotPasswordPage = () => {
 	};
 
 	return (
-		<Layout>
+		<Layout title="Forgot Password">
 			<div className="min-h-screen">
 				<div className="flex justify-center">
 					<div className="w-full max-w-2xl mx-4 my-6">

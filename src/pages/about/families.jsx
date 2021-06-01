@@ -33,7 +33,7 @@ const Carousel = () => {
 
 const FamiliesPage = () => {
 	return (
-		<Layout>
+		<Layout title="Families">
 			<Carousel />
 			<div></div>
 		</Layout>

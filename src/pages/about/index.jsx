@@ -11,13 +11,13 @@ const Tenet = ({ title, text, imageSrc, imageAlt }) => (
 
 const Branch = ({ title, text }) => (
 	<section className="flex flex-col justify-center items-center p-6 my-4">
-		<h2 className="text-2xl font-bold">{title}</h2>
+		<h2 className="text-2xl font-bold mb-2">{title}</h2>
 		<p>{text}</p>
 	</section>
 );
 const AboutPage = () => {
 	return (
-		<Layout>
+		<Layout title="About">
 			<section className="relative md:-mt-24">
 				<div className="bg-black h-full w-full absolute z-10 bg-opacity-50 flex justify-center items-center">
 					<h1 className="text-white text-4xl md:text-6xl text-center font-extrabold">
@@ -32,7 +32,9 @@ const AboutPage = () => {
 			</section>
 			<section className="flex justify-center p-6">
 				<div className=" max-w-6xl">
-					<h2 className="text-xl font-bold">About Circle K International</h2>
+					<h2 className="text-xl font-bold mb-2">
+						About Circle K International
+					</h2>
 					<p>
 						Circle K International (CKI) is the premier collegiate and
 						university community service, leadership development, and friendship
@@ -68,7 +70,7 @@ const AboutPage = () => {
 						<Tenet
 							title="Fellowship"
 							text="If there is one thing that Circle K knows best, it is fellowship.
-						With each element and aspect of Circle K , members experience
+						With each element and aspect of Circle K, members experience
 						genuine fellowship and develop life-long relationships with fellow
 						collegians, advisors, Kiwanians, and citizens in their communities."
 							imageSrc="https://i.imgur.com/k2SzIgT.png"

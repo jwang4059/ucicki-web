@@ -14,12 +14,14 @@ import Footer from "./footer";
 
 library.add(fab, faUsers, faLeaf, faAnchor, faBars, faSpinner);
 
-export const siteTitle = "UCICKI Website";
+export const siteTitle = "UCI Circle K";
 
-const Layout = ({ children }) => {
+const Layout = ({ title, children }) => {
 	return (
 		<>
-			<Head></Head>
+			<Head>
+				<title>{title ? `${title} | ${siteTitle}` : siteTitle}</title>
+			</Head>
 			<div className="flex flex-col min-h-screen bg-gray-100">
 				<div className="flex-grow min-h-screen md:min-h-0">
 					<Header />

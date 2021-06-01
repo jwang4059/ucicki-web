@@ -17,7 +17,7 @@ const Hour = ({ name, src, hours }) => {
 
 const Leaderboard = () => {
 	return (
-		<Layout>
+		<Layout title="Leaderboard">
 			<section>{/*Member of the Week/ Citrus of the Month */}</section>
 			<section className="text-center">
 				<h2>Club Hours</h2>

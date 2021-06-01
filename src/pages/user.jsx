@@ -73,7 +73,7 @@ const UserPage = () => {
 		content = <UserSection data={data} />;
 	}
 
-	return <Layout>{content}</Layout>;
+	return <Layout title="User">{content}</Layout>;
 };
 
 export default UserPage;

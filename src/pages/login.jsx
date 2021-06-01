@@ -49,7 +49,7 @@ const LoginPage = () => {
 	};
 
 	return (
-		<Layout>
+		<Layout title="Login">
 			<div className="min-h-screen flex justify-center">
 				<div className="w-full max-w-xl mx-4 my-6">
 					<div className="h-14">

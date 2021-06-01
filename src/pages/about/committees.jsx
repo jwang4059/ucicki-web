@@ -24,7 +24,7 @@ const CommitteeSection = ({ name, heads, children, imgSrc, imgAlt }) => {
 
 const CommitteesPage = () => {
 	return (
-		<Layout>
+		<Layout title="Committees">
 			<div className="p-6">
 				<article className="mb-4">
 					<h1 className="text-4xl text-center font-bold mb-2">

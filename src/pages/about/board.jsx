@@ -29,7 +29,7 @@ const BoardSection = ({ title, children }) => {
 
 const BoardPage = () => {
 	return (
-		<Layout>
+		<Layout title="Board">
 			<div className="flex justify-center items-center p-6">
 				<div className="max-w-6xl">
 					<h1 className="text-3xl font-extrabold mb-4">UCI Circle K Board</h1>
