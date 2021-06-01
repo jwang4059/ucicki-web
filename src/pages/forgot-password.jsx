@@ -15,7 +15,7 @@ const ForgotPasswordPage = () => {
 	const [submitted, setSubmitted] = useState(false);
 
 	const onSubmit = async (values, { setSubmitting }) => {
-		await fetch("http://localhost:4000/forgot-password", {
+		await fetch(`${process.env.NEXT_PUBLIC_HOST}/forgot-password`, {
 			method: "POST",
 			credentials: "include",
 			headers: {

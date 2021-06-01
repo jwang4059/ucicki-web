@@ -29,7 +29,7 @@ const LoginPage = () => {
 
 	const onSubmit = async (values, { setSubmitting }) => {
 		setError(null);
-		const response = await fetch("http://localhost:4000/login", {
+		const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/login`, {
 			method: "POST",
 			credentials: "include",
 			headers: {

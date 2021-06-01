@@ -40,7 +40,7 @@ const RegisterPage = () => {
 	const [error, setError] = useState("");
 
 	const onSubmit = async (values, { setSubmitting }) => {
-		const response = await fetch("http://localhost:4000/register", {
+		const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/register`, {
 			method: "POST",
 			credentials: "include",
 			headers: {

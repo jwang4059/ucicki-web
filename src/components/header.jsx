@@ -21,7 +21,7 @@ Links
 const LogoutButton = () => {
 	const router = useRouter();
 	const logout = async () => {
-		await fetch("http://localhost:4000/logout", {
+		await fetch(`${process.env.NEXT_PUBLIC_HOST}/logout`, {
 			method: "POST",
 			credentials: "include",
 			headers: {

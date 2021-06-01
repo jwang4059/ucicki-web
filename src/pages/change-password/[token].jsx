@@ -28,7 +28,7 @@ const ChangePasswordPage = () => {
 	useEffect(() => {
 		const validateToken = async () => {
 			const response = await fetch(
-				"http://localhost:4000/change-password-token",
+				`${process.env.NEXT_PUBLIC_HOST}/change-password-token`,
 				{
 					method: "POST",
 					credentials: "include",
@@ -51,14 +51,17 @@ const ChangePasswordPage = () => {
 	}, [router]);
 
 	const onSubmit = async (values, { setSubmitting }) => {
-		const response = await fetch("http://localhost:4000/change-password", {
-			method: "POST",
-			credentials: "include",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({ ...values, token }),
-		});
+		const response = await fetch(
+			`${process.env.NEXT_PUBLIC_HOST}/change-password`,
+			{
+				method: "POST",
+				credentials: "include",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({ ...values, token }),
+			}
+		);
 		const data = await response.json();
 
 		if (data.status === "success") {

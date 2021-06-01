@@ -9,7 +9,10 @@ const fetcher = async (url) => {
 };
 
 export const useUser = () => {
-	const { data, error } = useSWR("http://localhost:4000/user/info", fetcher);
+	const { data, error } = useSWR(
+		`${process.env.NEXT_PUBLIC_HOST}/user/info`,
+		fetcher
+	);
 
 	return {
 		data,
