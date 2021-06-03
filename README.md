@@ -38,12 +38,12 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 
 - [Tailwind CSS Docs](https://tailwindcss.com/docs/utility-first)
 
-### Font Awesome (Icons)
+### Font Awesome (Icon Library)
 
 - [Font Awesome Docs](https://fontawesome.com/v5.15/how-to-use/on-the-web/using-with/react) - instructions on how to use font-awesome with React
 - [Font Awesome Library](https://fontawesome.com/v5.15/icons?d=gallery&p=2&m=free) - access free icons
 
-### Swiper
+### Swiper (Carousel Component)
 
 - [Swiper React Docs](https://swiperjs.com/react) - instructions on how to use Swiper with React
 - [Swiper API Docs](https://swiperjs.com/swiper-api) - documentation on how to use Swiper in general
