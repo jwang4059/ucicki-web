@@ -38,18 +38,16 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 
 - [Tailwind CSS Docs](https://tailwindcss.com/docs/utility-first)
 
-### Formik (Form Management) + Yup (Form Validation)
-
-= [Formik + Yup Tutorial](https://formik.org/docs/tutorial)
-
-- [Formik Docs](https://formik.org/docs/api/formik)
-- [Yup Docs](https://github.com/jquense/yup)
-
 ### Font Awesome (Icons)
 
-= [Font Awesome Docs](https://fontawesome.com/v5.15/how-to-use/on-the-web/using-with/react)
-
+- [Font Awesome Docs](https://fontawesome.com/v5.15/how-to-use/on-the-web/using-with/react) - instructions on how to use font-awesome with React
 - [Font Awesome Library](https://fontawesome.com/v5.15/icons?d=gallery&p=2&m=free) - access free icons
+
+### Formik (Form Management) + Yup (Form Validation)
+
+- [Formik + Yup Tutorial](https://formik.org/docs/tutorial)
+- [Formik Docs](https://formik.org/docs/api/formik)
+- [Yup Docs](https://github.com/jquense/yup)
 
 ### Additional Libraries
 
