@@ -1,38 +1,5 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Tech Stack
-
-frontend: react.js + next.js
-css-framework: tailwindcss
-cms: netlify
-icons: font-awesome
-
-### Libraries
-
-import cn from 'classnames' // toggle classes
-import fs from 'fs' // fetch files from client
-import path from 'path' // handle file paths
-import matter from 'gray-matter' // parse metadata from md files
-import remark from 'remark' // parse md to html
-import html from 'remark-html'
-import { parseISO, format } from 'date-fns' // format dates
-
-import Link from 'next/link' // client-side navigation
-import Image from 'next/image' // resizing + optimizing + lazy loading images
-import Head from 'next/head' // metadata
-getStaticPaths // returns array of possible url parameters
-getStaticProps // static generation
-getServerSideProps // server-sider rendering
-SWR // client-side rendering
-
-### Concepts
-
-Hydration: React components are initialized and App becomes interactive
-Static Generation: pre=rendering method that generates the HTML at build time
-Server-side Rendering: pre-rendering method that generates the HTML on each request
-Client-side Rendering: pre-render without data and then load on the client-side
-API routes/ Serverless functions/ Preview Mode: use when handling form / cms
-
 ## Getting Started
 
 First, run the development server:
@@ -51,14 +18,44 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+## Learn More About Frontend Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+### Javascript (Programming Language)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Javascript Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### React (Javascript Framework)
+
+- [React Tutorial](https://reactjs.org/tutorial/tutorial.html)
+- [React Docs](https://reactjs.org/docs/getting-started.html)
+
+### Next.js (React Framework)
+
+- [Next.js Tutorial](https://nextjs.org/learn)
+- [Next.js Docs](https://nextjs.org/docs/getting-started)
+
+### Tailwind CSS (CSS Framework)
+
+- [Tailwind CSS Docs](https://tailwindcss.com/docs/utility-first)
+
+### Formik (Form Management) + Yup (Form Validation)
+
+= [Formik + Yup Tutorial](https://formik.org/docs/tutorial)
+
+- [Formik Docs](https://formik.org/docs/api/formik)
+- [Yup Docs](https://github.com/jquense/yup)
+
+### Font Awesome (Icons)
+
+= [Font Awesome Docs](https://fontawesome.com/v5.15/how-to-use/on-the-web/using-with/react)
+
+- [Font Awesome Library](https://fontawesome.com/v5.15/icons?d=gallery&p=2&m=free) - access free icons
+
+### Additional Libraries
+
+- [NPM](https://www.npmjs.com/) - use to find Javascript libraries
+- [classnames](https://www.npmjs.com/package/classnames) - used for managing classNames
+- [date-fns](https://www.npmjs.com/package/date-fns) - used for managing date format
 
 ## Deploy on Vercel
 
