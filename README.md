@@ -43,6 +43,11 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 - [Font Awesome Docs](https://fontawesome.com/v5.15/how-to-use/on-the-web/using-with/react) - instructions on how to use font-awesome with React
 - [Font Awesome Library](https://fontawesome.com/v5.15/icons?d=gallery&p=2&m=free) - access free icons
 
+### Swiper
+
+- [Swiper React Docs](https://swiperjs.com/react) - instructions on how to use Swiper with React
+- [Swiper API Docs](https://swiperjs.com/swiper-api) - documentation on how to use Swiper in general
+
 ### Formik (Form Management) + Yup (Form Validation)
 
 - [Formik + Yup Tutorial](https://formik.org/docs/tutorial)
@@ -53,7 +58,8 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 
 - [NPM](https://www.npmjs.com/) - use to find Javascript libraries
 - [classnames](https://www.npmjs.com/package/classnames) - used for managing classNames
-- [date-fns](https://www.npmjs.com/package/date-fns) - used for managing date format
+- [date-fns](https://date-fns.org/docs/Getting-Started#introduction) - used for managing date format
+- [swr](https://swr.vercel.app/getting-started) - used for client side rendering
 
 ## Deploy on Vercel
 
