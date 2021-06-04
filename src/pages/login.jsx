@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useRouter } from "next/router";
 import Link from "../components/link";
 import { Formik, Form, useField } from "formik";
 import Layout from "../components/layout";
@@ -24,7 +23,6 @@ const Input = ({ label, ...props }) => {
 };
 
 const LoginPage = () => {
-	const router = useRouter();
 	const [error, setError] = useState(null);
 
 	const onSubmit = async (values, { setSubmitting }) => {
@@ -40,7 +38,7 @@ const LoginPage = () => {
 		const data = await response.json();
 
 		if (data.status === "success") {
-			router.push("/");
+			window.location.assign("/");
 		} else {
 			setError(data.message);
 		}

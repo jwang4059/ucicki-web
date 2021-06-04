@@ -36,7 +36,7 @@ const LogoutButton = () => {
 };
 
 const Header = () => {
-	const { isError } = useUser();
+	const { isLoading, isError } = useUser();
 	const [open, setOpen] = useState(false);
 
 	const signedIn = !isError;
@@ -103,16 +103,24 @@ const Header = () => {
 						<li className="my-2" onClick={toggleMenu}>
 							<Link href="/about">About</Link>
 						</li>
-						<li className="my-2" onClick={toggleMenu}>
-							{!signedIn ? (
-								<Link href="/register">Register</Link>
-							) : (
-								<Link href="/user">My Profile</Link>
-							)}
-						</li>
-						<li className="my-2" onClick={toggleMenu}>
-							{!signedIn ? <Link href="/login">Login</Link> : <LogoutButton />}
-						</li>
+						{!isLoading && (
+							<>
+								<li className="my-2" onClick={toggleMenu}>
+									{!signedIn ? (
+										<Link href="/register">Register</Link>
+									) : (
+										<Link href="/user">My Profile</Link>
+									)}
+								</li>
+								<li className="my-2" onClick={toggleMenu}>
+									{!signedIn ? (
+										<Link href="/login">Login</Link>
+									) : (
+										<LogoutButton />
+									)}
+								</li>
+							</>
+						)}
 					</ul>
 				</nav>
 			)}
