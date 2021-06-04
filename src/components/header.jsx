@@ -45,8 +45,8 @@ const Header = () => {
 	};
 
 	return (
-		<header className="min-w-full bg-black text-white fixed z-50">
-			<div className="flex items-center h-24 p-6">
+		<header className="min-w-full text-white fixed z-50">
+			<div className="flex items-center h-24 p-6 bg-black">
 				<div className="flex-grow md:flex-grow-0 md:flex-shrink-0">
 					<a href="https://www.circlek.org/">
 						<img
@@ -95,34 +95,36 @@ const Header = () => {
 			</div>
 
 			{open && (
-				<nav className="md:hidden">
-					<ul className="flex flex-col p-6">
-						<li className="my-2" onClick={toggleMenu}>
-							<Link href="/">Home</Link>
-						</li>
-						<li className="my-2" onClick={toggleMenu}>
-							<Link href="/about">About</Link>
-						</li>
-						{!isLoading && (
-							<>
-								<li className="my-2" onClick={toggleMenu}>
-									{!signedIn ? (
-										<Link href="/register">Register</Link>
-									) : (
-										<Link href="/user">My Profile</Link>
-									)}
-								</li>
-								<li className="my-2" onClick={toggleMenu}>
-									{!signedIn ? (
-										<Link href="/login">Login</Link>
-									) : (
-										<LogoutButton />
-									)}
-								</li>
-							</>
-						)}
-					</ul>
-				</nav>
+				<div className="min-h-screen min-w-full" onClick={toggleMenu}>
+					<nav className="bg-black md:hidden">
+						<ul className="flex flex-col p-6">
+							<li className="my-2">
+								<Link href="/">Home</Link>
+							</li>
+							<li className="my-2">
+								<Link href="/about">About</Link>
+							</li>
+							{!isLoading && (
+								<>
+									<li className="my-2">
+										{!signedIn ? (
+											<Link href="/register">Register</Link>
+										) : (
+											<Link href="/user">My Profile</Link>
+										)}
+									</li>
+									<li className="my-2">
+										{!signedIn ? (
+											<Link href="/login">Login</Link>
+										) : (
+											<LogoutButton />
+										)}
+									</li>
+								</>
+							)}
+						</ul>
+					</nav>
+				</div>
 			)}
 		</header>
 	);
