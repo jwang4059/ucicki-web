@@ -37,12 +37,15 @@ const Footer = (props) => {
 			<section className="grid grid-cols-1 md:grid-cols-3 bg-gray-400 text-center">
 				<FooterSection title="Kiwanis">
 					<div className="p-2">
-						<Kiwani href="http://www.kiwanisclublakeforest.org/" icon="leaf">
+						<Kiwani
+							href="http://www.kiwanisclublakeforest.org/"
+							icon={["fas", "leaf"]}
+						>
 							Lake Forest
 						</Kiwani>
 						<Kiwani
 							href="https://sites.google.com/site/kiwanisofnewportbeach/"
-							icon="anchor"
+							icon={["fas", "anchor"]}
 						>
 							CDM/Newport
 						</Kiwani>
@@ -69,7 +72,7 @@ const Footer = (props) => {
 				</FooterSection>
 				<FooterSection title="Connect With UCI CKI">
 					<div className="flex flex-wrap justify-center items-center p-2">
-						<Icon href="#" icon="users" />
+						<Icon href="#" icon={["fas", "users"]} />
 						<Icon
 							href="http://www.ucicirclek.com/facebook/"
 							icon={["fab", "facebook"]}

@@ -37,17 +37,26 @@ const LogoutButton = () => {
 
 const Header = () => {
 	const { isLoading, isError } = useUser();
-	const [open, setOpen] = useState(false);
+	const [mobileMenuState, setMobileMenuState] = useState({
+		menuOpen: false,
+		aboutOpen: false,
+	});
 
 	const signedIn = !isError;
-	const toggleMenu = () => {
-		setOpen(!open);
+	const toggleMenu = (name) => {
+		setMobileMenuState({
+			...mobileMenuState,
+			[name]: !mobileMenuState[name],
+		});
+		console.log(name);
 	};
+
+	const { menuOpen, aboutOpen } = mobileMenuState;
 
 	return (
 		<header className="min-w-full text-white fixed z-50">
 			<div className="flex items-center h-24 p-6 bg-black">
-				<div className="flex-grow md:flex-grow-0 md:flex-shrink-0">
+				<div className="flex-shrink-0">
 					<a href="https://www.circlek.org/">
 						<img
 							className="w-44 mr-4"
@@ -56,32 +65,36 @@ const Header = () => {
 						/>
 					</a>
 				</div>
-				<div className="flex-shrink-0 md:flex-shrink md:flex-grow flex items-end">
+				<div className="flex-grow flex justify-end items-end">
 					<div
-						className="flex justify-center items-center text-4xl md:hidden"
-						onClick={toggleMenu}
+						className="w-12 h-12 flex justify-center items-center text-4xl md:hidden"
+						onClick={() => toggleMenu("menuOpen")}
 					>
-						<FontAwesomeIcon icon={"bars"} />
+						{!menuOpen ? (
+							<FontAwesomeIcon icon={["fas", "bars"]} />
+						) : (
+							<FontAwesomeIcon icon={["fas", "times"]} />
+						)}
 					</div>
 					<nav className="hidden md:block min-w-full">
 						<ul className="flex flex-row">
 							<div className="flex-grow flex items-end">
-								<li className="mx-2" onClick={toggleMenu}>
+								<li className="mx-2">
 									<Link href="/">Home</Link>
 								</li>
-								<li className="mx-2" onClick={toggleMenu}>
+								<li className="mx-2">
 									<Link href="/about">About</Link>
 								</li>
 							</div>
 							<div className="flex-shrink-0 flex items-end">
-								<li className="mx-2" onClick={toggleMenu}>
+								<li className="mx-2">
 									{!signedIn ? (
 										<Link href="/register">Register</Link>
 									) : (
 										<Link href="/user">My Profile</Link>
 									)}
 								</li>
-								<li className="mx-2" onClick={toggleMenu}>
+								<li className="mx-2">
 									{!signedIn ? (
 										<Link href="/login">Login</Link>
 									) : (
@@ -94,15 +107,32 @@ const Header = () => {
 				</div>
 			</div>
 
-			{open && (
-				<div className="min-h-screen min-w-full" onClick={toggleMenu}>
+			{menuOpen && (
+				<div className="min-h-screen min-w-full">
 					<nav className="bg-black md:hidden">
 						<ul className="flex flex-col p-6">
 							<li className="my-2">
 								<Link href="/">Home</Link>
 							</li>
 							<li className="my-2">
-								<Link href="/about">About</Link>
+								<div onClick={() => toggleMenu("aboutOpen")}>
+									<span className="mr-2">About</span>
+									{!aboutOpen ? (
+										<FontAwesomeIcon icon={["fas", "caret-down"]} />
+									) : (
+										<FontAwesomeIcon icon={["fas", "caret-up"]} />
+									)}
+								</div>
+								{aboutOpen && (
+									<ul>
+										<li className="my-2 ml-2">
+											<Link href="/about">Circle K</Link>
+										</li>
+										<li className="my-2 ml-2">
+											<Link href="/about/board">Board</Link>
+										</li>
+									</ul>
+								)}
 							</li>
 							{!isLoading && (
 								<>

@@ -8,7 +8,7 @@ const Button = ({ isLoading = false, children, ...props }) => {
 			disabled={isLoading}
 			{...props}
 		>
-			{isLoading ? <FontAwesomeIcon icon="spinner" /> : children}
+			{isLoading ? <FontAwesomeIcon icon={["fas", "spinner"]} /> : children}
 		</button>
 	);
 };
