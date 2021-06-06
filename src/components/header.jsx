@@ -131,6 +131,9 @@ const Header = () => {
 										<li className="my-2 ml-2">
 											<Link href="/about/board">Board</Link>
 										</li>
+										<li className="my-2 ml-2">
+											<Link href="/about/committees">Committees</Link>
+										</li>
 									</ul>
 								)}
 							</li>
