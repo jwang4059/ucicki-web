@@ -1,5 +1,5 @@
 {
 	"extends": ["react-app", "prettier"],
 	"plugins": ["prettier"],
-	"rules": { "no-console": "off" }
+	"rules": { "no-console": "off", "jsx-a11y/anchor-is-valid": "off" }
 }
