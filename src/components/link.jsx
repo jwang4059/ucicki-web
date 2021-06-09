@@ -11,10 +11,20 @@ const AnchorTag = React.forwardRef(
 	}
 );
 
-const Link = ({ className, href, children }) => {
+const Link = ({ className, href, children, external = false, ...props }) => {
+	if (external) {
+		return (
+			<a className={className} href={href} {...props}>
+				{children}
+			</a>
+		);
+	}
+
 	return (
 		<NextLink href={href} passHref>
-			<AnchorTag className={className}>{children}</AnchorTag>
+			<AnchorTag className={className} {...props}>
+				{children}
+			</AnchorTag>
 		</NextLink>
 	);
 };
