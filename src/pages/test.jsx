@@ -4,6 +4,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import cn from "classnames";
 
 library.add(fab, fas);
 
@@ -44,43 +45,43 @@ const events = [
 	{
 		name: "Service",
 		description: "Learn about service.",
-		href: "#",
+		href: "/events/service",
 		icon: ["fas", "seedling"],
 	},
 	{
 		name: "Leadership",
 		description: "Learn about leadership.",
-		href: "#",
+		href: "/events/leadership",
 		icon: ["fas", "star"],
 	},
 	{
 		name: "Fellowship",
 		description: "Learn about fellowship.",
-		href: "#",
+		href: "/events/fellowship",
 		icon: ["fas", "heart"],
 	},
 	{
 		name: "Fundraising",
 		description: "Learn about fundraising.",
-		href: "#",
+		href: "/events/fundraising",
 		icon: ["fas", "dollar-sign"],
 	},
 	{
 		name: "CKI South",
 		description: "Learn about CKI South.",
-		href: "#",
+		href: "/events/cki-south",
 		icon: ["fas", "child"],
 	},
 	{
 		name: "FTC",
 		description: "Learn about FTC.",
-		href: "#",
+		href: "/events/ftc",
 		icon: ["fas", "lightbulb"],
 	},
 	{
 		name: "DCON",
 		description: "Learn about DCON.",
-		href: "#",
+		href: "/events/dcon",
 		icon: ["fas", "graduation-cap"],
 	},
 ];
@@ -89,7 +90,7 @@ const resources = [
 	{
 		name: "Cheers",
 		description: "Learn our cheers.",
-		href: "#",
+		href: "/cheers",
 		icon: ["fas", "bullhorn"],
 	},
 	{
@@ -101,13 +102,13 @@ const resources = [
 	{
 		name: "MRP Requirements",
 		description: "Check out MRP requirements.",
-		href: "#",
+		href: "/mrp",
 		icon: ["fas", "tasks"],
 	},
 	{
 		name: "Suggestion Box",
 		description: "Make a suggestion.",
-		href: "#",
+		href: "/suggestion-box",
 		icon: ["fas", "inbox"],
 	},
 ];
@@ -131,18 +132,14 @@ const resourcesCTA = [
 	{ name: "Suggestion Box", href: "/suggestion-box", icon: ["fas", "inbox"] },
 ];
 
-function classNames(...classes) {
-	return classes.filter(Boolean).join(" ");
-}
-
 const DesktopPopover = ({ name, items, cta }) => {
 	return (
 		<Popover className="relative">
 			{({ open }) => (
 				<>
 					<Popover.Button
-						className={classNames(
-							open ? "text-gray-500" : "text-white",
+						className={cn(
+							open ? "text-white" : "text-gray-500",
 							"group bg-black rounded-md inline-flex items-center text-base font-medium hover:text-gray-300 focus:outline-none focus:ring-2  focus:ring-offset-2 focus:ring-offset-transparent focus:ring-indigo-500"
 						)}
 					>
@@ -150,8 +147,8 @@ const DesktopPopover = ({ name, items, cta }) => {
 						<span className="ml-2 h-5 w-5 flex justify-center items-center">
 							<FontAwesomeIcon
 								icon={["fas", "chevron-down"]}
-								className={classNames(
-									open ? "text-gray-500" : "text-white",
+								className={cn(
+									open ? "text-white" : "text-gray-500",
 									"text-xs group-hover:text-gray-300"
 								)}
 								aria-hidden="true"
@@ -235,18 +232,18 @@ const MobileDropdown = ({ name, items, cta }) => {
 			{({ open }) => (
 				<>
 					<Menu.Button
-						className={classNames(
-							open ? "text-gray-500" : "text-gray-900",
-							"group mb-2 bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none"
+						className={cn(
+							open ? "text-white" : "text-gray-500",
+							"group bg-black rounded-md inline-flex items-center text-base font-medium hover:text-gray-300 focus:outline-none"
 						)}
 					>
 						<span>{name}</span>
 						<span className="ml-2 h-5 w-5 flex justify-center items-center">
 							<FontAwesomeIcon
 								icon={["fas", "chevron-down"]}
-								className={classNames(
-									open ? "text-gray-400" : "text-gray-600",
-									"text-xs group-hover:text-gray-500"
+								className={cn(
+									open ? "text-white" : "text-gray-500",
+									"text-xs group-hover:text-gray-300"
 								)}
 								aria-hidden="true"
 							/>
@@ -268,7 +265,7 @@ const MobileDropdown = ({ name, items, cta }) => {
 								<Menu.Item as="li" key={item.name}>
 									<a
 										href={item.href}
-										className="p-3 rounded-md text-base font-medium text-gray-900 hover:text-gray-500 "
+										className="p-3 rounded-md text-base font-medium text-gray-500 hover:text-white hover:underline"
 									>
 										{item.name}
 									</a>
@@ -278,7 +275,7 @@ const MobileDropdown = ({ name, items, cta }) => {
 								<Menu.Item as="li" key={item.name}>
 									<a
 										href={item.href}
-										className="p-3 rounded-md text-base font-medium text-gray-900 hover:text-gray-500 "
+										className="p-3 rounded-md text-base font-medium text-indigo-900 hover:text-indigo-500 hover:underline"
 									>
 										{item.name}
 									</a>
@@ -294,14 +291,14 @@ const MobileDropdown = ({ name, items, cta }) => {
 
 const Header = () => {
 	return (
-		<Popover className="relative border-b-2 border-gray-100 bg-black">
+		<Popover className="relative bg-black">
 			{({ open }) => (
 				<>
 					<div className="max-w-7xl mx-auto px-4 sm:px-6">
 						<div className="flex justify-between items-center py-6 md:justify-start md:space-x-8">
 							<div className="flex-shrink-0 flex justify-start">
 								<a href="#">
-									<span className="sr-only">Workflow</span>
+									<span className="sr-only">Circle K International</span>
 									<img
 										className="h-10 w-auto"
 										src="https://i.imgur.com/p7Ufk3d.png"
@@ -316,7 +313,7 @@ const Header = () => {
 									<span className="sr-only">Open menu</span>
 									<span className="h-6 w-6">
 										<FontAwesomeIcon
-											icon={["fas", "bars"]}
+											icon={["fas", `${open ? "times" : "bars"}`]}
 											className="text-2xl"
 											aria-hidden="true"
 										/>
@@ -328,7 +325,7 @@ const Header = () => {
 							<Popover.Group as="nav" className="hidden md:flex space-x-8">
 								<a
 									href="/"
-									className="text-base font-medium text-white hover:text-gray-300"
+									className="text-base font-medium text-gray-500 hover:text-gray-300"
 								>
 									Home
 								</a>
@@ -336,7 +333,7 @@ const Header = () => {
 								<DesktopPopover name="About" items={about} cta={aboutCTA} />
 								<DesktopPopover name="Events" items={events} cta={eventsCTA} />
 								<DesktopPopover
-									name="More"
+									name="Resources"
 									items={resources}
 									cta={resourcesCTA}
 								/>
@@ -347,7 +344,7 @@ const Header = () => {
 								{/* Desktop Register */}
 								<a
 									href="/login"
-									className="whitespace-nowrap text-base font-medium text-white hover:text-gray-300"
+									className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-300"
 								>
 									Sign in
 								</a>
@@ -374,79 +371,54 @@ const Header = () => {
 						leaveTo="opacity-0 scale-95"
 					>
 						<Popover.Panel
-							focus
 							static
-							className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+							className="inset-x-0 p-2 transition transform origin-top-right md:hidden"
 						>
-							<div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
-								<div className="pt-5 pb-6 px-5">
-									<div className="flex items-center justify-between">
-										{/* Home Logo */}
-										<div>
-											<img
-												className="h-8 w-auto"
-												src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-												alt="Workflow"
-											/>
-										</div>
-										{/* Close Menu */}
-										<div className="-mr-2">
-											<Popover.Button className="bg-white rounded-md p-2 inline-flex justify-center items-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-												<span className="sr-only">Close menu</span>
-												<span className="h-6 w-6 inline-flex justify-center items-center">
-													<FontAwesomeIcon
-														icon={["fas", "times"]}
-														className="text-2xl"
-														aria-hidden="true"
-													/>
-												</span>
-											</Popover.Button>
-										</div>
-									</div>
-
-									{/* Menu Dropdowns */}
-									<div className="mt-6">
-										<nav className="grid gap-y-2">
-											<MobileDropdown
-												name="About"
-												items={about}
-												cta={aboutCTA}
-											/>
-											<MobileDropdown
-												name="Events"
-												items={events}
-												cta={eventsCTA}
-											/>
-											<MobileDropdown
-												name="Resources"
-												items={resources}
-												cta={resourcesCTA}
-											/>
-										</nav>
-									</div>
-								</div>
-
-								{/* Mobile Register/Login */}
-								<div className="py-6 px-5 space-y-6">
-									{/* Mobile Register */}
-									<a
-										href="/register"
-										role="button"
-										className="w-full flex justify-center items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
-									>
-										Sign up
-									</a>
-									{/* Mobile Login */}
-									<p className="mt-6 text-center text-base font-medium text-gray-500">
-										Already a member?{" "}
+							<div className="pt-5 pb-6 px-5">
+								{/* Menu Items */}
+								<div className="mt-6">
+									<nav className="grid gap-y-4">
 										<a
-											href="/login"
-											className="text-indigo-600 hover:text-indigo-500"
+											href="/"
+											className="text-base font-medium text-gray-500 hover:text-gray-300"
 										>
-											Sign in
+											Home
 										</a>
-									</p>
+										<MobileDropdown name="About" items={about} cta={aboutCTA} />
+										<MobileDropdown
+											name="Events"
+											items={events}
+											cta={eventsCTA}
+										/>
+										<MobileDropdown
+											name="Resources"
+											items={resources}
+											cta={resourcesCTA}
+										/>
+									</nav>
 								</div>
+							</div>
+
+							{/* Mobile Register/Login */}
+							<div className="py-6 px-5 space-y-6">
+								{/* Mobile Register */}
+								<a
+									href="/register"
+									role="button"
+									className="w-full flex justify-center items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+								>
+									Sign up
+								</a>
+								{/* Mobile Login */}
+								<p className="mt-6 text-center text-base font-medium text-gray-500">
+									Already a member?{" "}
+									<a
+										href="/login"
+										className="text-indigo-600 hover:text-indigo-500"
+									>
+										Sign in
+									</a>
+								</p>
 							</div>
 						</Popover.Panel>
 					</Transition>
