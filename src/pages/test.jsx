@@ -1,5 +1,5 @@
-import React, { Fragment, useState } from "react";
-import { Popover, Transition } from "@headlessui/react";
+import React, { Fragment } from "react";
+import { Popover, Menu, Transition } from "@headlessui/react";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
@@ -142,8 +142,8 @@ const DesktopPopover = ({ name, items, cta }) => {
 				<>
 					<Popover.Button
 						className={classNames(
-							open ? "text-gray-900" : "text-gray-500",
-							"group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+							open ? "text-gray-500" : "text-white",
+							"group bg-black rounded-md inline-flex items-center text-base font-medium hover:text-gray-300 focus:outline-none focus:ring-2  focus:ring-offset-2 focus:ring-offset-transparent focus:ring-indigo-500"
 						)}
 					>
 						<span>{name}</span>
@@ -151,8 +151,8 @@ const DesktopPopover = ({ name, items, cta }) => {
 							<FontAwesomeIcon
 								icon={["fas", "chevron-down"]}
 								className={classNames(
-									open ? "text-gray-400" : "text-gray-600",
-									"text-xs group-hover:text-gray-500"
+									open ? "text-gray-500" : "text-white",
+									"text-xs group-hover:text-gray-300"
 								)}
 								aria-hidden="true"
 							/>
@@ -229,83 +229,90 @@ const DesktopPopover = ({ name, items, cta }) => {
 	);
 };
 
-const MenuDropdown = ({ name, items, isOpen, onClick }) => {
+const MobileDropdown = ({ name, items, cta }) => {
 	return (
-		<li onClick={onClick}>
-			<div
-				className={classNames(
-					isOpen ? "text-gray-500" : "text-gray-900",
-					"group mb-2 bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none"
-				)}
-			>
-				<span>{name}</span>
-				<span className="ml-2 h-5 w-5 flex justify-center items-center">
-					<FontAwesomeIcon
-						icon={["fas", "chevron-down"]}
+		<Menu as="div">
+			{({ open }) => (
+				<>
+					<Menu.Button
 						className={classNames(
-							isOpen ? "text-gray-400" : "text-gray-600",
-							"text-xs group-hover:text-gray-500"
+							open ? "text-gray-500" : "text-gray-900",
+							"group mb-2 bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none"
 						)}
-						aria-hidden="true"
-					/>
-				</span>
-			</div>
-			{isOpen && (
-				<ul className="grid gap-y-2 mt-2 ml-2">
-					{items.map((item) => (
-						<li key={item.name}>
-							<a
-								href={item.href}
-								className="p-3 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50 "
-							>
-								{item.name}
-							</a>
-						</li>
-					))}
-				</ul>
+					>
+						<span>{name}</span>
+						<span className="ml-2 h-5 w-5 flex justify-center items-center">
+							<FontAwesomeIcon
+								icon={["fas", "chevron-down"]}
+								className={classNames(
+									open ? "text-gray-400" : "text-gray-600",
+									"text-xs group-hover:text-gray-500"
+								)}
+								aria-hidden="true"
+							/>
+						</span>
+					</Menu.Button>
+
+					<Transition
+						show={open}
+						as={Fragment}
+						enter="transition ease-out duration-200"
+						enterFrom="opacity-0 translate-y-1"
+						enterTo="opacity-100 translate-y-0"
+						leave="transition ease-in duration-150"
+						leaveFrom="opacity-100 translate-y-0"
+						leaveTo="opacity-0 translate-y-1"
+					>
+						<Menu.Items static as="ul" className="grid gap-y-2 mt-2 ml-2">
+							{items.map((item) => (
+								<Menu.Item as="li" key={item.name}>
+									<a
+										href={item.href}
+										className="p-3 rounded-md text-base font-medium text-gray-900 hover:text-gray-500 "
+									>
+										{item.name}
+									</a>
+								</Menu.Item>
+							))}
+							{cta.map((item) => (
+								<Menu.Item as="li" key={item.name}>
+									<a
+										href={item.href}
+										className="p-3 rounded-md text-base font-medium text-gray-900 hover:text-gray-500 "
+									>
+										{item.name}
+									</a>
+								</Menu.Item>
+							))}
+						</Menu.Items>
+					</Transition>
+				</>
 			)}
-		</li>
+		</Menu>
 	);
 };
 
-export default function Example() {
-	const [mobileState, setMobileState] = useState({
-		menu: false,
-		about: false,
-		events: false,
-		media: false,
-		resources: false,
-	});
-
-	const toggleMobileMenu =
-		(name = "menu") =>
-		() => {
-			setMobileState({
-				...mobileState,
-				[name]: !mobileState[name],
-			});
-		};
-
+const Header = () => {
 	return (
-		<Popover className="relative bg-white">
+		<Popover className="relative border-b-2 border-gray-100 bg-black">
 			{({ open }) => (
 				<>
 					<div className="max-w-7xl mx-auto px-4 sm:px-6">
-						<div className="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
-							<div className="flex justify-start">
+						<div className="flex justify-between items-center py-6 md:justify-start md:space-x-8">
+							<div className="flex-shrink-0 flex justify-start">
 								<a href="#">
 									<span className="sr-only">Workflow</span>
 									<img
-										className="h-8 w-auto sm:h-10"
-										src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-										alt=""
+										className="h-10 w-auto"
+										src="https://i.imgur.com/p7Ufk3d.png"
+										alt="Circle K International"
 									/>
 								</a>
 							</div>
 
 							{/* Mobile Menu Toggle */}
 							<div className="-mr-2 -my-2 md:hidden">
-								<Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+								<Popover.Button className="bg-black rounded-md p-2 inline-flex items-center justify-center text-white hover:text-gray-100 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
 									<span className="sr-only">Open menu</span>
 									<span className="h-6 w-6">
 										<FontAwesomeIcon
@@ -318,77 +325,15 @@ export default function Example() {
 							</div>
 
 							{/* Desktop Navbar */}
-							<Popover.Group as="nav" className="hidden md:flex space-x-10">
-								{/* Uses special properties to prevent it from cutting off when screen is small */}
-								<Popover className="relative">
-									{({ open }) => (
-										<>
-											<Popover.Button
-												className={classNames(
-													open ? "text-gray-900" : "text-gray-500",
-													"group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-												)}
-											>
-												<span>About</span>
-												<span className="ml-2 h-5 w-5 flex justify-center items-center">
-													<FontAwesomeIcon
-														icon={["fas", "chevron-down"]}
-														className={classNames(
-															open ? "text-gray-400" : "text-gray-600",
-															"text-xs group-hover:text-gray-500"
-														)}
-														aria-hidden="true"
-													/>
-												</span>
-											</Popover.Button>
+							<Popover.Group as="nav" className="hidden md:flex space-x-8">
+								<a
+									href="/"
+									className="text-base font-medium text-white hover:text-gray-300"
+								>
+									Home
+								</a>
 
-											<Transition
-												show={open}
-												as={Fragment}
-												enter="transition ease-out duration-200"
-												enterFrom="opacity-0 translate-y-1"
-												enterTo="opacity-100 translate-y-0"
-												leave="transition ease-in duration-150"
-												leaveFrom="opacity-100 translate-y-0"
-												leaveTo="opacity-0 translate-y-1"
-											>
-												<Popover.Panel
-													static
-													className="absolute z-10 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2"
-												>
-													<div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
-														<div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
-															{about.map((item) => (
-																<a
-																	key={item.name}
-																	href={item.href}
-																	className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
-																>
-																	<span className="flex-shrink-0 h-6 w-6">
-																		<FontAwesomeIcon
-																			icon={item.icon}
-																			className="text-lg text-indigo-600"
-																			aria-hidden="true"
-																		/>
-																	</span>
-																	<div className="ml-4">
-																		<p className="text-base font-medium text-gray-900">
-																			{item.name}
-																		</p>
-																		<p className="mt-1 text-sm text-gray-500">
-																			{item.description}
-																		</p>
-																	</div>
-																</a>
-															))}
-														</div>
-													</div>
-												</Popover.Panel>
-											</Transition>
-										</>
-									)}
-								</Popover>
-
+								<DesktopPopover name="About" items={about} cta={aboutCTA} />
 								<DesktopPopover name="Events" items={events} cta={eventsCTA} />
 								<DesktopPopover
 									name="More"
@@ -402,7 +347,7 @@ export default function Example() {
 								{/* Desktop Register */}
 								<a
 									href="/login"
-									className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
+									className="whitespace-nowrap text-base font-medium text-white hover:text-gray-300"
 								>
 									Sign in
 								</a>
@@ -461,27 +406,22 @@ export default function Example() {
 
 									{/* Menu Dropdowns */}
 									<div className="mt-6">
-										<nav>
-											<ul className="grid gap-y-2">
-												<MenuDropdown
-													name="About"
-													items={about}
-													isOpen={mobileState["about"]}
-													onClick={toggleMobileMenu("about")}
-												/>
-												<MenuDropdown
-													name="Events"
-													items={events}
-													isOpen={mobileState["events"]}
-													onClick={toggleMobileMenu("events")}
-												/>
-												<MenuDropdown
-													name="Resources"
-													items={resources}
-													isOpen={mobileState["resources"]}
-													onClick={toggleMobileMenu("resources")}
-												/>
-											</ul>
+										<nav className="grid gap-y-2">
+											<MobileDropdown
+												name="About"
+												items={about}
+												cta={aboutCTA}
+											/>
+											<MobileDropdown
+												name="Events"
+												items={events}
+												cta={eventsCTA}
+											/>
+											<MobileDropdown
+												name="Resources"
+												items={resources}
+												cta={resourcesCTA}
+											/>
 										</nav>
 									</div>
 								</div>
@@ -514,4 +454,6 @@ export default function Example() {
 			)}
 		</Popover>
 	);
-}
+};
+
+export default Header;
