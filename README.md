@@ -37,6 +37,10 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 ### Tailwind CSS (CSS Framework)
 
 - [Tailwind CSS Docs](https://tailwindcss.com/docs/utility-first)
+- [Headless UI Docs](https://headlessui.dev/) - use to build basic components
+- [Tailwind UI Components](https://tailwindui.com/#components) - official examples of Tailwind components
+- [More Tailwind Components](https://tailwindcomponents.com/) - community examples of Tailwind components
+- [Tailwind Cheatsheet](https://tailwindcomponents.com/cheatsheet/) - cheatsheet for Tailwind
 
 ### Font Awesome (Icon Library)
 
