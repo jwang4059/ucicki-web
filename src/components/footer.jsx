@@ -34,7 +34,7 @@ const FooterSection = ({ title, children }) => (
 const Footer = (props) => {
 	return (
 		<footer {...props}>
-			<section className="grid grid-cols-1 md:grid-cols-3 bg-gray-400 text-center">
+			<section className="grid grid-cols-1 md:grid-cols-3 text-center bg-gray-500 p-6">
 				<FooterSection title="Kiwanis">
 					<div className="p-2">
 						<Kiwani
@@ -52,7 +52,7 @@ const Footer = (props) => {
 					</div>
 				</FooterSection>
 				<FooterSection title="Circle K">
-					<div className="flex flex-wrap md:flex-nowrap justify-center p-2">
+					<div className="flex flex-wrap md:flex-nowrap md:flex-1 justify-center p-2">
 						<Emblem
 							href="https://www.facebook.com/groups/cnhckicitrus/"
 							src="https://i.imgur.com/fsG85vT.png"
@@ -96,11 +96,11 @@ const Footer = (props) => {
 					</div>
 				</FooterSection>
 			</section>
-			<section className="bg-yellow-300">
-				<span className="block text-center uppercase p-2">
+			<section className="bg-yellow-300 p-6">
+				<p className="text-center uppercase">
 					© 2013-{new Date().getFullYear()} Circle K International at University
 					of california, Irvine · All Rights Reserved
-				</span>
+				</p>
 			</section>
 		</footer>
 	);

@@ -146,7 +146,14 @@ const LogoutButton = () => {
 		router.reload();
 	};
 
-	return <button onClick={logout}>Logout</button>;
+	return (
+		<button
+			className="whitespace-nowrap inline-flex justify-center items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+			onClick={logout}
+		>
+			Logout
+		</button>
+	);
 };
 
 const DesktopPopover = ({ name, items, cta }) => {
@@ -156,8 +163,10 @@ const DesktopPopover = ({ name, items, cta }) => {
 				<>
 					<Popover.Button
 						className={cn(
-							open ? "text-white" : "text-gray-500",
-							"group bg-black rounded-md inline-flex items-center text-base font-medium hover:text-gray-300 focus:outline-none focus:ring-2  focus:ring-offset-2 focus:ring-offset-transparent focus:ring-indigo-500"
+							open
+								? "bg-gray-900 text-white"
+								: "text-gray-500 hover:text-gray-300",
+							"group bg-black rounded-md inline-flex items-center text-base font-medium focus:outline-none"
 						)}
 					>
 						<span>{name}</span>
@@ -311,10 +320,10 @@ const Header = () => {
 	const signedIn = !isError;
 
 	return (
-		<Popover className="fixed z-30 bg-black">
+		<Popover className="h-24 fixed z-30 bg-black">
 			{({ open }) => (
 				<>
-					<div className="w-screen px-4 sm:px-6">
+					<div className="h-full w-screen flex flex-col justify-center px-6">
 						<div className="flex justify-between items-center py-6 md:justify-start md:space-x-8">
 							<div className="flex-shrink-0 flex justify-start">
 								<a href="https://www.circlek.org/">
@@ -328,7 +337,7 @@ const Header = () => {
 							</div>
 
 							{/* Mobile Menu Toggle */}
-							<div className="-mr-2 -my-2 md:hidden">
+							<div className="-my-2 md:hidden">
 								<Popover.Button className="bg-black rounded-md p-2 inline-flex items-center justify-center text-white hover:text-gray-100 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
 									<span className="sr-only">Open menu</span>
 									<span className="h-6 w-6">
@@ -360,24 +369,32 @@ const Header = () => {
 							</Popover.Group>
 
 							{/* Desktop Register/Login */}
-							<div className="hidden md:flex justify-end items-center md:flex-1">
-								{/* Desktop Register */}
-								<Link
-									href="/login"
-									role="button"
-									className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-300"
-								>
-									Sign in
-								</Link>
-								{/* Desktop Login */}
-								<Link
-									href="/register"
-									role="button"
-									className="ml-8 whitespace-nowrap inline-flex justify-center items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
-								>
-									Sign up
-								</Link>
-							</div>
+							{!isLoading && (
+								<div className="hidden md:flex justify-end items-center md:flex-1">
+									{!signedIn ? (
+										<>
+											{/* Desktop Register */}
+											<Link
+												href="/login"
+												role="button"
+												className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-300"
+											>
+												Sign in
+											</Link>
+											{/* Desktop Login */}
+											<Link
+												href="/register"
+												role="button"
+												className="ml-8 whitespace-nowrap inline-flex justify-center items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+											>
+												Sign up
+											</Link>
+										</>
+									) : (
+										<LogoutButton />
+									)}
+								</div>
+							)}
 						</div>
 					</div>
 
@@ -394,9 +411,9 @@ const Header = () => {
 					>
 						<Popover.Panel
 							static
-							className="inset-x-0 p-2 transition transform origin-top-right md:hidden"
+							className="inset-x-0 p-2 transition transform origin-top-right md:hidden bg-black"
 						>
-							<div className="pt-5 pb-6 px-5">
+							<div className="p-6">
 								{/* Menu Items */}
 								<div className="mt-6">
 									<nav className="grid gap-y-4">
@@ -422,27 +439,29 @@ const Header = () => {
 							</div>
 
 							{/* Mobile Register/Login */}
-							<div className="py-6 px-5 space-y-6">
-								{/* Mobile Register */}
-								<Link
-									href="/register"
-									role="button"
-									className="w-full flex justify-center items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
-								>
-									Sign up
-								</Link>
-								{/* Mobile Login */}
-								<p className="mt-6 text-center text-base font-medium text-gray-500">
-									Already a member?{" "}
+							{!isLoading && (
+								<div className="py-6 px-5 space-y-6">
+									{/* Mobile Register */}
 									<Link
-										href="/login"
+										href="/register"
 										role="button"
-										className="text-indigo-600 hover:text-indigo-500"
+										className="w-full flex justify-center items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
 									>
-										Sign in
+										Sign up
 									</Link>
-								</p>
-							</div>
+									{/* Mobile Login */}
+									<p className="mt-6 text-center text-base font-medium text-gray-500">
+										Already a member?{" "}
+										<Link
+											href="/login"
+											role="button"
+											className="text-indigo-600 hover:text-indigo-500"
+										>
+											Sign in
+										</Link>
+									</p>
+								</div>
+							)}
 						</Popover.Panel>
 					</Transition>
 				</>

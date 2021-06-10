@@ -14,7 +14,13 @@ const AnchorTag = React.forwardRef(
 const Link = ({ className, href, children, external = false, ...props }) => {
 	if (external) {
 		return (
-			<a className={className} href={href} {...props}>
+			<a
+				className={className}
+				href={href}
+				target="_blank"
+				rel="noopener noreferrer"
+				{...props}
+			>
 				{children}
 			</a>
 		);
