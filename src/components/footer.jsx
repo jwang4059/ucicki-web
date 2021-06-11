@@ -60,12 +60,12 @@ const Footer = (props) => {
 						/>
 						<Emblem
 							href="http://www.circlek.org/"
-							src="https://www.ucicirclek.com/public/css/cki_emblem.png"
+							src="https://i.imgur.com/8SAo106.png"
 							alt="Circle K International Emblem"
 						/>
 						<Emblem
 							href="http://www.cnhcirclek.org/"
-							src="https://www.ucicirclek.com/public/css/cnh_emblem.png"
+							src="https://i.imgur.com/ivNFdgl.png"
 							alt="Cal-Nev-Ha District Emblem"
 						/>
 					</div>

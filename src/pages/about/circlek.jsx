@@ -49,7 +49,7 @@ const AboutPage = () => {
 						<section className="flex flex-col justify-center items-center p-6">
 							<img
 								className="w-1/3"
-								src="http://www.ucicirclek.com/public/css/cki_emblem.png"
+								src="https://i.imgur.com/8SAo106.png"
 								alt="Circle K International Emblem"
 							/>
 							<h2 className="text-xl font-bold">The 3 Tenets of Circle K</h2>
