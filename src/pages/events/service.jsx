@@ -5,7 +5,7 @@ import EventCard from "../../components/eventCard";
 const IntroSection = ({ title, text }) => {
 	return (
 		<section>
-			<h2 className="mb-2 text-lg font-bold">{title}</h2>
+			<h2 className="mb-2 text-xl font-bold">{title}</h2>
 			<p className="text-base font-medium">{text}</p>
 		</section>
 	);
@@ -15,8 +15,7 @@ const ServicePage = () => {
 	return (
 		<Layout title="Service">
 			<div className="max-w-7xl mx-auto">
-				<h1 className="py-6 text-center text-3xl font-extrabold">Service</h1>
-
+				<h1 className="p-6 text-center text-3xl font-extrabold">Service</h1>
 				<article className="grid gap-4 p-6">
 					<IntroSection
 						title="What is Service?"
@@ -31,7 +30,6 @@ const ServicePage = () => {
 						schools around the Citrus Division and beyond. Together, Circle
 						K'ers truly make a difference in the community."
 					/>
-
 					<IntroSection
 						title="Service Initiatives"
 						text="Each year, the Cal-Nev-Ha District of Circle K adopts and works
@@ -70,9 +68,10 @@ const ServicePage = () => {
 					/>
 				</article>
 				<article className="grid gap-4 p-6">
-					<h2 className="text-center text-lg font-bold">District Events</h2>
+					<h2 className="text-center text-xl font-bold">District Events</h2>
 					<EventCard
 						title="District Large Scale Service Project (DLSSP)"
+						subheading="District Event"
 						description="CNH Circle K holds a DLSSP event related to its District Service
 							Initiative to help the community in many ways. In 2020, members
 							will serve to conserve by removing weeds and restoring ecological
@@ -80,6 +79,7 @@ const ServicePage = () => {
 					/>
 					<EventCard
 						title="Divisional Service Projects"
+						subheading="District Event"
 						description="Divisional Service Projects are projects where Citrus Circle K
 							members work closely with other organizations in order to help our
 							community. Such projects promote networking throughout the
@@ -90,12 +90,12 @@ const ServicePage = () => {
 					/>
 				</article>
 				<article className="p-6">
-					<h2 className="text-center text-lg font-bold mb-6">Club Events</h2>
+					<h2 className="text-center text-xl font-bold mb-6">Club Events</h2>
 					<div className="grid md:grid-cols-2 md:gap-x-6">
-						<div>
+						<div className="grid gap-6 mb-6">
 							<EventCard
 								title="Spring Into Service"
-								location="UCI"
+								subheading="UCI | Club Event"
 								description="Spring Into Service is UCI Circle K's special week to jumpstart
 							service for the first week of a new term! Members and non-members
 							learn about the service events and projects the club has to offer,
@@ -106,7 +106,7 @@ const ServicePage = () => {
 							/>
 							<EventCard
 								title="Tabitha's Blessings Food Distribution"
-								location="Civic Center (Santa Ana)"
+								subheading="Civic Center (Santa Ana) | Club Event"
 								website="http://www.tabithasblessings.org/"
 								imgSrc="https://i.imgur.com/7Zl7ZLF.jpg"
 								imgClass="w-64 max-w-sm object-cover"
@@ -121,7 +121,7 @@ const ServicePage = () => {
 							/>
 							<EventCard
 								title="South County Outreach "
-								location="SCO Center"
+								subheading="SCO Center | Club Event"
 								website="http://www.sco-oc.org/"
 								imgSrc="https://i.imgur.com/V23VACC.jpg"
 								imgClass="w-64 max-w-sm object-cover"
@@ -129,7 +129,7 @@ const ServicePage = () => {
 							/>
 							<EventCard
 								title="Hemopet"
-								location="Hemopet Canine Blood Bank (Garden Grove)"
+								subheading="Hemopet Canine Blood Bank (Garden Grove) | Club Event"
 								website="http://www.hemopet.org/"
 								description="Hemopet is a full-service facility consisting of an animal blood bank, greyhound rescue and adoption, and specialty veterinary diagnostic laboratory. Volunteers help walk and play with the greyhounds to keep them happy, healthy, and ready for adoption."
 								testimonials={[
@@ -146,10 +146,10 @@ const ServicePage = () => {
 								]}
 							/>
 						</div>
-						<div>
+						<div className="grid gap-6">
 							<EventCard
 								title="Girls Incorporated"
-								location="Pomona Elementary (Costa Mesa)"
+								subheading="Pomona Elementary (Costa Mesa) | Club Event"
 								website="http://www.girlsinc.org/"
 								imgSrc="https://i.imgur.com/Tn4IIsA.png"
 								imgClass="w-64 max-w-sm object-cover"
@@ -164,7 +164,7 @@ const ServicePage = () => {
 							/>
 							<EventCard
 								title="Save Our Youth"
-								location="SOY Center (Costa Mesa)"
+								subheading="SOY Center (Costa Mesa) | Club Event"
 								website="http://save-our-youth.org/"
 								imgSrc="https://i.imgur.com/w5vcWP7.png"
 								imgClass="w-64 max-w-sm object-cover"
@@ -179,7 +179,7 @@ const ServicePage = () => {
 							/>
 							<EventCard
 								title="Child Creativity Lab"
-								location="Orange County"
+								subheading="Orange County | Club Event"
 								website="http://childcreativitylab.org/"
 								imgSrc="https://i.imgur.com/1iWvrcA.png"
 								imgClass="w-64 max-w-sm object-cover"

@@ -6,22 +6,23 @@ const CKISouthPage = () => {
 	return (
 		<Layout title="CKI South">
 			<div className="max-w-7xl mx-auto">
-				<h1 className="py-6 text-center text-3xl font-extrabold">
+				<h1 className="p-6 text-center text-3xl font-extrabold">
 					Crazy Kompetition for Infants
 				</h1>
-				<div>
-					<img
-						src="https://crazykomp.cnhcirclek.org/Assets/banner.png"
-						alt=""
-					/>
+				<img
+					className="w-full"
+					src="https://crazykomp.cnhcirclek.org/Assets/banner.png"
+					alt=""
+				/>
+				<div className="p-6">
+					<p className="p-4 text-center rounded-3xl border-2 border-blue-500">
+						Due to the on-going COVID 19 situation, CKI South and CKI North are
+						merged into one online event!
+					</p>
 				</div>
-				<p className="p-4 m-6 text-center rounded-3xl border-2 border-blue-500">
-					Due to the on-going COVID 19 situation, CKI South and CKI North are
-					merged into one online event!
-				</p>
-				<div className="p-6 grid gap-4 md:grid-cols-12">
+				<div className="p-6 grid gap-x-4 gap-y-8 md:grid-cols-12">
 					<article className="md:col-span-4 md:self-start grid gap-4">
-						<section>
+						<section className="grid gap-2">
 							<h2 className="text-xl font-bold">Registration</h2>
 							<ul className="ml-6 list-disc">
 								<li>Early Registration (CHECK OR PAYPAL ONLY)</li>
@@ -32,14 +33,16 @@ const CKISouthPage = () => {
 								<li>(Contact our Club President to register!)</li>
 							</ul>
 						</section>
-						<section>
+						<section className="grid gap-2">
 							<h2 className="text-xl font-bold">Forms</h2>
-							<h3>Registration Form:</h3>
-							<Link href="tinyurl.com/crazykomp2020" external colored>
-								tinyurl.com/crazykomp2020
-							</Link>
+							<div>
+								<h3>Registration Form:</h3>
+								<Link href="tinyurl.com/crazykomp2020" external colored>
+									tinyurl.com/crazykomp2020
+								</Link>
+							</div>
 						</section>
-						<section>
+						<section className="grid gap-2">
 							<h2 className="text-xl font-bold">Official Sites</h2>
 							<div>
 								<h3>CKI South Website:</h3>
@@ -59,9 +62,9 @@ const CKISouthPage = () => {
 							</div>
 						</section>
 					</article>
-					<article className="md:col-span-8 grid gap-4">
+					<article className="md:col-span-8 md:self-start grid gap-4">
 						<section>
-							<h2 className="text-xl font-bold">About</h2>
+							<h2 className="mb-2 text-xl font-bold">About</h2>
 							<p>
 								Crazy Kompetition for Infants South (CKI South) is an annual
 								event that raises money for the Pediatric Trauma Program (PTP)
@@ -73,7 +76,7 @@ const CKISouthPage = () => {
 							</p>
 						</section>
 						<section>
-							<h2 className="text-xl font-bold">
+							<h2 className="mb-2 text-xl font-bold">
 								Pediatric Trauma Program (PTP)
 							</h2>
 							<p>
@@ -90,7 +93,7 @@ const CKISouthPage = () => {
 							</p>
 						</section>
 						<section>
-							<h2 className="text-xl font-bold">Teams</h2>
+							<h2 className="mb-2 text-xl font-bold">Teams</h2>
 							<p>
 								Members will have the opportunity to create teams of 6 (with the
 								option of 1 alternate) and compete against teams from all over
@@ -100,7 +103,7 @@ const CKISouthPage = () => {
 							</p>
 						</section>
 						<section>
-							<h2 className="text-xl font-bold">Judges</h2>
+							<h2 className="mb-2 text-xl font-bold">Judges</h2>
 							<p>
 								Help ensure that Crazy Komp games run smoothly and are scored
 								fairly, and receive service hours for your assistance! Please
@@ -111,7 +114,7 @@ const CKISouthPage = () => {
 							</p>
 						</section>
 						<section>
-							<h2 className="text-xl font-bold">Spectator</h2>
+							<h2 className="mb-2 text-xl font-bold">Spectator</h2>
 							<p>
 								Support your teams on the sidelines and cheer them on the way to
 								success! Spectators help liven the mood and motivate fellow

@@ -6,10 +6,10 @@ const LeadershipPage = () => {
 	return (
 		<Layout title="Leadership">
 			<div className="max-w-7xl mx-auto">
-				<h1 className="py-6 text-center text-3xl font-extrabold">Leadership</h1>
-				<article className="grid gap-4">
-					<section className="p-6">
-						<h2 className="mb-2 text-lg font-bold">What is Leadership?</h2>
+				<h1 className="p-6 text-center text-3xl font-extrabold">Leadership</h1>
+				<article className="grid gap-4 p-6">
+					<section>
+						<h2 className="mb-2 text-xl font-bold">What is Leadership?</h2>
 						<p>
 							More than a passive definition, Leadership is an active tenet of
 							Circle K International. Regardless of title or position,
@@ -19,8 +19,8 @@ const LeadershipPage = () => {
 							develop and bring out the leader within each individual.
 						</p>
 					</section>
-					<section className="p-6">
-						<h2 className="mb-2 text-lg font-bold">Committees</h2>
+					<section>
+						<h2 className="mb-2 text-xl font-bold">Committees</h2>
 						<p>
 							One of the easiest ways to start developing your leadership is by
 							attending open committee meetings. Circle K has many committees
@@ -37,7 +37,7 @@ const LeadershipPage = () => {
 					<h2 className="text-center text-xl font-bold">District Events</h2>
 					<EventCard
 						title="Fall Training Conference (FTC)"
-						location="Sonora, CA"
+						subheading="Sonora, CA | District Event"
 						website="http://ftc.cnhcirclek.org/"
 						imgSrc="https://i.imgur.com/UrV9X18.jpg"
 						imgClass="w-full max-w-md object-cover"
@@ -61,7 +61,7 @@ const LeadershipPage = () => {
 					/>
 					<EventCard
 						title="District Convention (DCON)"
-						location="Los Angeles, CA"
+						subheading="Los Angeles, CA | District Event"
 						website="http://dcon.cnhcirclek.org/"
 						imgSrc="https://i.imgur.com/rxwBAvt.jpg"
 						imgClass="w-full max-w-md object-cover"
@@ -81,7 +81,7 @@ const LeadershipPage = () => {
 					/>
 					<EventCard
 						title="Spring Training Conference (STC)"
-						location="Fullerton, CA"
+						subheading="Fullerton, CA | District Event"
 						website="https://stc.cnhcirclek.org/"
 						imgSrc="https://i.imgur.com/XeQuHC5.jpg"
 						imgClass="w-full max-w-md object-cover"
@@ -99,10 +99,12 @@ const LeadershipPage = () => {
 							},
 						]}
 					/>
+				</article>
+				<article className="grid gap-4 p-6">
 					<h2 className="text-center text-xl font-bold">Club Events</h2>
 					<EventCard
 						title="General Member Leadership Retreat"
-						location="San Diego, CA"
+						subheading="San Diego, CA | Club Event"
 						imgSrc="https://i.imgur.com/keikrpd.jpg"
 						imgClass="w-full max-w-md object-cover"
 						description="Grow and develop your leadership skills in this one weekend trip with many other UCICKI members. Attend workshops hosted by your very own fellow members as they help you expand your potential as a leader. It is still a retreat, so build those long-lasting relationships by having fun and bonding as one big Circle K family."

@@ -1,8 +1,9 @@
 import React from "react";
+import Link from "./link";
 
 const EventCard = ({
 	title,
-	location,
+	subheading,
 	website,
 	description,
 	imgSrc,
@@ -11,7 +12,7 @@ const EventCard = ({
 	testimonials,
 }) => {
 	return (
-		<section className="bg-gray-300 grid gap-4 rounded-md shadow-md p-6 mb-6">
+		<section className="bg-gray-100 grid gap-4 rounded-md shadow-md p-6">
 			{imgSrc && (
 				<div className="flex justify-center items-center">
 					<img className={imgClass} src={imgSrc} alt={imgAlt || title || ""} />
@@ -19,16 +20,11 @@ const EventCard = ({
 			)}
 			<div className="flex flex-col">
 				<h3 className="text-lg font-semibold">{title}</h3>
-				{location && <span className="text-sm">{location}</span>}
+				{subheading && <span className="text-sm">{subheading}</span>}
 				{website && (
-					<a
-						className="text-blue-700"
-						href={website}
-						target="_blank"
-						rel="noopener noreferrer"
-					>
+					<Link href={website} external colored>
 						Website
-					</a>
+					</Link>
 				)}
 			</div>
 			<p className="text-base font-medium">{description}</p>

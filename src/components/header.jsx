@@ -89,13 +89,14 @@ const resources = [
 	{
 		name: "Cheers",
 		description: "Learn our cheers.",
-		href: "/cheers",
+		href: "/resources/cheers",
 		icon: ["fas", "bullhorn"],
 	},
 	{
 		name: "Club Bylaws",
 		description: "Learn club bylaws.",
-		href: "#",
+		href: "https://drive.google.com/file/d/1W-QcDsDOGerzk6v2-iQAokXlskhqNMMw/view",
+		external: true,
 		icon: ["fas", "balance-scale"],
 	},
 	{
@@ -202,6 +203,7 @@ const DesktopPopover = ({ name, items, cta }) => {
 										<Link
 											key={item.name}
 											href={item.href}
+											external={item.external}
 											className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
 										>
 											<span className="flex-shrink-0 h-6 w-6">
@@ -228,6 +230,7 @@ const DesktopPopover = ({ name, items, cta }) => {
 											<div key={item.name} className="flow-root">
 												<Link
 													href={item.href}
+													external={item.external}
 													className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100"
 												>
 													<span className="flex-shrink-0 h-6 w-6">
@@ -289,22 +292,24 @@ const MobileDropdown = ({ name, items, cta }) => {
 						<Menu.Items static as="ul" className="grid gap-y-2 mt-2 ml-2">
 							{items.map((item) => (
 								<Menu.Item as="li" key={item.name}>
-									<a
+									<Link
 										href={item.href}
+										external={item.external}
 										className="p-3 rounded-md text-base font-medium text-gray-500 hover:text-white hover:underline"
 									>
 										{item.name}
-									</a>
+									</Link>
 								</Menu.Item>
 							))}
 							{cta.map((item) => (
 								<Menu.Item as="li" key={item.name}>
-									<a
+									<Link
 										href={item.href}
+										external={item.external}
 										className="p-3 rounded-md text-base font-medium text-indigo-900 hover:text-indigo-500 hover:underline"
 									>
 										{item.name}
-									</a>
+									</Link>
 								</Menu.Item>
 							))}
 						</Menu.Items>

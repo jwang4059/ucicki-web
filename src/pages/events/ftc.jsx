@@ -6,31 +6,31 @@ const FTCPage = () => {
 	return (
 		<Layout title="FTC">
 			<div className="max-w-7xl mx-auto">
-				<h1 className="py-6 text-center text-3xl font-extrabold">
+				<h1 className="p-6 text-center text-3xl font-extrabold">
 					Fall Training Conference
 				</h1>
-				<div>
-					<img src="https://i.imgur.com/xxXlExL.png" alt="" />
+				<img className="w-full" src="https://i.imgur.com/xxXlExL.png" alt="" />
+				<div className="p-6">
+					<p className="p-4 text-center rounded-3xl border-2 border-blue-500">
+						Registration for FTC will be starting soon! Keep an eye out for
+						updates!
+					</p>
 				</div>
-				<p className="p-4 m-6 text-center rounded-3xl border-2 border-blue-500">
-					Registration for FTC will be starting soon! Keep an eye out for
-					updates!
-				</p>
-				<div className="p-6 grid gap-4 md:grid-cols-12">
+				<div className="p-6 grid gap-x-4 gap-y-8 md:grid-cols-12">
 					<article className="md:col-span-4 md:self-start grid gap-4">
-						<section>
+						<section className="grid gap-2">
 							<h2 className="text-xl font-bold">Registration</h2>
 							<ul className="ml-6 list-disc">
 								<li>Registration for FTC starts at 5:30PM</li>
 								<li>Opening Session starts at 9:00PM on Friday.</li>
 								<li>Departure will be at 10:30AM on Sunday.</li>
 								<li>
-									Location:Old Oak Ranch Conference Center 15250 Old Oak Ranch
+									Location: Old Oak Ranch Conference Center 15250 Old Oak Ranch
 									Rd, Sonora, CA 95370
 								</li>
 							</ul>
 						</section>
-						<section>
+						<section className="grid gap-2">
 							<h2 className="text-xl font-bold">Required Forms</h2>
 							<div>
 								<h3>Code of Conduct</h3>
@@ -53,7 +53,7 @@ const FTCPage = () => {
 								</Link>
 							</div>
 						</section>
-						<section>
+						<section className="grid gap-2">
 							<h2 className="text-xl font-bold">Official Sites</h2>
 							<div>
 								<h3>FTC Website:</h3>
@@ -63,9 +63,9 @@ const FTCPage = () => {
 							</div>
 						</section>
 					</article>
-					<article className="md:col-span-8 grid gap-4">
+					<article className="md:col-span-8 md:self-start grid gap-4">
 						<section>
-							<h2 className="text-xl font-bold">What is FTC?</h2>
+							<h2 className="mb-2 text-xl font-bold">What is FTC?</h2>
 							<p>
 								FTC stands for Fall Training Conference. Fall Training
 								Conference is a three-day, two-night event held at Old Oak Ranch
@@ -79,7 +79,9 @@ const FTCPage = () => {
 							</p>
 						</section>
 						<section>
-							<h2 className="text-xl font-bold">How Can I Get Involved?</h2>
+							<h2 className="mb-2 text-xl font-bold">
+								How Can I Get Involved?
+							</h2>
 							<p>
 								FTC offers a variety of ways to get involved! Some examples
 								include SAA (Sergeant-At-Arms), Workshop Hosts, Team Captains,
@@ -87,7 +89,7 @@ const FTCPage = () => {
 							</p>
 						</section>
 						<section>
-							<h2 className="text-xl font-bold">Sergeant-At-Arms (SAA)</h2>
+							<h2 className="mb-2 text-xl font-bold">Sergeant-At-Arms (SAA)</h2>
 							<p>
 								SAAs are volunteers responsible for knowing and enforcing the
 								Code of Conduct and the Old Oak Ranch Camp Guidelines. They make

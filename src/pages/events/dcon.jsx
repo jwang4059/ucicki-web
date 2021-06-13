@@ -4,21 +4,21 @@ import Link from "../../components/link";
 
 const DconPage = () => {
 	return (
-		<Layout title="CKI South">
+		<Layout title="Dcon">
 			<div className="max-w-7xl mx-auto">
-				<h1 className="py-6 text-center text-3xl font-extrabold">
+				<h1 className="p-6 text-center text-3xl font-extrabold">
 					District Convention
 				</h1>
-				<div>
-					<img src="https://i.imgur.com/xxXlExL.png" alt="" />
+				<img className="w-full" src="https://i.imgur.com/xxXlExL.png" alt="" />
+				<div className="p-6">
+					<p className="p-4 text-center rounded-3xl border-2 border-blue-500">
+						Due to the on-going COVID 19 situation, DCON may be rescheduled or
+						moved online this year.
+					</p>
 				</div>
-				<p className="p-4 m-6 text-center rounded-3xl border-2 border-blue-500">
-					Due to the on-going COVID 19 situation, DCON may be rescheduled or
-					moved online this year.
-				</p>
-				<div className="p-6 grid gap-4 md:grid-cols-12">
+				<div className="p-6 grid gap-x-4 gap-y-8 md:grid-cols-12">
 					<article className="md:col-span-4 md:self-start grid gap-4">
-						<section>
+						<section className="grid gap-2">
 							<h2 className="text-xl font-bold">Registration</h2>
 							<ul className="ml-6 list-disc">
 								<li>Applications/Deadlines</li>
@@ -34,7 +34,7 @@ const DconPage = () => {
 								<li>[TBD] Last Day to Swap Names</li>
 							</ul>
 						</section>
-						<section>
+						<section className="grid gap-2">
 							<h2 className="text-xl font-bold">Official Sites</h2>
 							<div>
 								<h3>DCON 2020 Website:</h3>
@@ -54,9 +54,9 @@ const DconPage = () => {
 							</div>
 						</section>
 					</article>
-					<article className="md:col-span-8 grid gap-4">
+					<article className="md:col-span-8 md:self-start grid gap-4">
 						<section>
-							<h2 className="text-xl font-bold">About</h2>
+							<h2 className="mb-2 text-xl font-bold">About</h2>
 							<p>
 								The CNH Circle K District hosts an annual three day and two
 								night event called District Convention for clubs all around the
@@ -71,7 +71,7 @@ const DconPage = () => {
 							</p>
 						</section>
 						<section>
-							<h2 className="text-xl font-bold">Get Involved!</h2>
+							<h2 className="mb-2 text-xl font-bold">Get Involved!</h2>
 							<p>
 								There are plenty of ways to get involved at DCON! You can apply
 								to become a workshop host, be part of a talent show, be part of
