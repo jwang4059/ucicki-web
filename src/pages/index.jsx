@@ -98,7 +98,7 @@ const Card = ({ title, text, imageSrc, imageAlt, reverse = false }) => {
 					<h2 className="text-2xl font-bold">{title}</h2>
 					<p>{text}</p>
 				</div>
-				<div className="flex-shrink-0 flex justify-center items-center max-w-xl">
+				<div className="flex-shrink-0 flex justify-center items-center max-w-xl md:w-1/2">
 					<img className="w-full object-cover" src={imageSrc} alt={imageAlt} />
 				</div>
 			</div>
