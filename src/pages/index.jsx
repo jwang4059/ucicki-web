@@ -80,41 +80,26 @@ const Carousel = () => {
 	);
 };
 
-const Section = ({
-	title,
-	text,
-	imageSrc,
-	imageAlt,
-	textColor = "text-black",
-	bgColor = "bg-white",
-	reverse = false,
-}) => {
-	const contentDirection = !reverse ? "md:flex-row" : "md:flex-row-reverse";
-	const textMargin = !reverse ? "md:mr-6" : "md:ml-6";
-
+const Card = ({ title, text, imageSrc, imageAlt, reverse = false }) => {
 	return (
-		<section className={cn("flex justify-center p-6", textColor, bgColor)}>
+		<section className="max-w-7xl mx-auto">
 			<div
 				className={cn(
-					"flex flex-col justify-center w-full max-w-6xl",
-					contentDirection
+					"flex flex-col justify-center items-center p-6",
+					!reverse ? "md:flex-row" : "md:flex-row-reverse"
 				)}
 			>
 				<div
 					className={cn(
-						"flex-grow flex flex-col justify-center mb-6",
-						textMargin
+						"flex-grow grid gap-2 mb-4 md:mb-0",
+						!reverse ? "md:mr-12" : "md:ml-12"
 					)}
 				>
-					<h2 className="text-2xl font-bold mb-4">{title}</h2>
-					<p className="text-lg">{text}</p>
+					<h2 className="text-2xl font-bold">{title}</h2>
+					<p>{text}</p>
 				</div>
-				<div className="flex-shrink-0 flex justify-center items-center md:w-1/2">
-					<img
-						className="w-full max-w-xl object-cover"
-						src={imageSrc}
-						alt={imageAlt}
-					/>
+				<div className="flex-shrink-0 flex justify-center items-center max-w-xl">
+					<img className="w-full object-cover" src={imageSrc} alt={imageAlt} />
 				</div>
 			</div>
 		</section>
@@ -126,12 +111,12 @@ const IndexPage = () => {
 		<Layout title="Main">
 			<article>
 				<Carousel />
-				<section className="flex justify-center items-center p-6">
-					<div className="max-w-6xl">
-						<h2 className="text-center text-3xl font-bold mb-4">
+				<article className="max-w-7xl mx-auto">
+					<section className="grid gap-4 p-6">
+						<h2 className="text-center text-3xl font-bold">
 							What is UCI Circle K?
 						</h2>
-						<p className="text-lg">
+						<p>
 							UCI Circle K is a community service organization that focuses on
 							service, leadership, and fellowship. We are one of the largest
 							club on UCI campus with over 400 paying members. As one of the
@@ -142,17 +127,19 @@ const IndexPage = () => {
 							and check out our events if you are interested and want to learn
 							more.
 						</p>
-					</div>
-				</section>
-				<Section
-					title="Find a home away from home"
-					text="Meeting new people can be challenging and a bit intimidating, especially at such a large school. To help you fit in and find people you click with easier, UCI Circle K offers 13 different families that you can join. Each family is run by three bigs who are in charge of organizing socials, providing for their littles, and guiding their littles through their college experience."
-					imageSrc="https://lh3.googleusercontent.com/pw/ACtC-3dMdzdbM1PsaRbUlFHOwuUppfa-9paH_RF13CQtpWtK92M11gQ4GUZByhzwWsr9K9o7-Zn5Gp-KIrzoka2u0wlJIYJ0MGPwzdHOf6vrNJveEVir2p3TBeBSg_WKT1-mOEEQYT66LyXEjmnWSb3_xbvZ=w1250-h938-no?authuser=0"
-					imgAlt="Fam Pic"
-					textColor="text-white"
-					bgColor="bg-blue-700"
-				/>
-				<Section
+					</section>
+				</article>
+				<div className="bg-blue-700 text-white">
+					<Card
+						title="Find a home away from home"
+						text="Meeting new people can be challenging and a bit intimidating, especially at such a large school. To help you fit in and find people you click with easier, UCI Circle K offers 13 different families that you can join. Each family is run by three bigs who are in charge of organizing socials, providing for their littles, and guiding their littles through their college experience."
+						imageSrc="https://lh3.googleusercontent.com/pw/ACtC-3dMdzdbM1PsaRbUlFHOwuUppfa-9paH_RF13CQtpWtK92M11gQ4GUZByhzwWsr9K9o7-Zn5Gp-KIrzoka2u0wlJIYJ0MGPwzdHOf6vrNJveEVir2p3TBeBSg_WKT1-mOEEQYT66LyXEjmnWSb3_xbvZ=w1250-h938-no?authuser=0"
+						imgAlt="Fam Pic"
+						textColor="text-white"
+						bgColor="bg-blue-700"
+					/>
+				</div>
+				<Card
 					title="Develop and Grow"
 					text="Outside of the family system, UCI Circle K offers a bunch of committees that can help members get more involved within the club. UCI Circle K committees are responsible for different aspects of the club and include fun themes such as gaming, dancing, and cooking. These committees are usually involved with large scale events that help fundraise money for local charities and UCI Circle K partners. Committees give members a chance to learn new skills, take up leadership positions, and work with other dedicated members to accomplish a common goal."
 					imageSrc="https://i.imgur.com/sTh5PNL.jpg"
@@ -161,20 +148,22 @@ const IndexPage = () => {
 					bgColor="bg-white"
 					reverse
 				/>
-				<Section
-					title="Give back to the community"
-					text="At the end of the day, UCI Circle K is a community service organization. This means we offer weekly service projects for members who want to give back to the community. You are NOT obligated to attend ANY service events, but it is definitely a worth while experience and a good way to meet new people."
-					imageSrc="https://lh3.googleusercontent.com/pw/ACtC-3fMExUl82zv2EmdeGkxYohJnsyKNQ04c69M3t7MHMJvlFwa7UW1BZOBA-NJFCA39_E4eJ9hmI50QvyW0xx1wnAvgf9AUH47NIDDBBdcuNnpZo9Ll4Bl1zwo23noHQ-q_JNDqFYHMnUIJIZt7EUDeCM4=w1250-h938-no?authuser=0"
-					imgAlt="Service Pic"
-					textColor="text-white"
-					bgColor="bg-green-600"
-				/>
-				<section className="flex justify-center p-6">
-					<div className="max-w-6xl">
-						<h2 className="text-center text-2xl font-bold uppercase mb-4">
+				<div className="bg-green-700 text-white">
+					<Card
+						title="Give back to the community"
+						text="At the end of the day, UCI Circle K is a community service organization. This means we offer weekly service projects for members who want to give back to the community. You are NOT obligated to attend ANY service events, but it is definitely a worth while experience and a good way to meet new people."
+						imageSrc="https://lh3.googleusercontent.com/pw/ACtC-3fMExUl82zv2EmdeGkxYohJnsyKNQ04c69M3t7MHMJvlFwa7UW1BZOBA-NJFCA39_E4eJ9hmI50QvyW0xx1wnAvgf9AUH47NIDDBBdcuNnpZo9Ll4Bl1zwo23noHQ-q_JNDqFYHMnUIJIZt7EUDeCM4=w1250-h938-no?authuser=0"
+						imgAlt="Service Pic"
+						textColor="text-white"
+						bgColor="bg-green-600"
+					/>
+				</div>
+				<article className="max-w-3xl mx-auto">
+					<section className="grid gap-2 p-6">
+						<h2 className="text-center text-3xl font-bold uppercase">
 							Join UCI CKI today!
 						</h2>
-						<p className="text-lg">
+						<p>
 							If you are ready to join, you can fill out the registration form.
 							For more information, you can explore the website or check us out
 							at one of our events. If you have any questions, contact a board
@@ -182,15 +171,15 @@ const IndexPage = () => {
 							contact the Technology chairs Steven Lam and Thomas Reynolds. Hope
 							to see you soon!
 						</p>
-						<div className="flex justify-center">
-							<Link className="w-2/3 max-w-xl my-8" href="/register">
+						<div className="w-2/3 max-w-xl mx-auto my-8">
+							<Link href="/register">
 								<button className="w-full py-2 px-4 shadow-sm text-sm font-bold rounded-md text-white bg-indigo-600">
 									Register
 								</button>
 							</Link>
 						</div>
-					</div>
-				</section>
+					</section>
+				</article>
 			</article>
 		</Layout>
 	);
