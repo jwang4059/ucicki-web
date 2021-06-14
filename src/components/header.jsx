@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Popover, Menu, Transition } from "@headlessui/react";
+import { Popover, Disclosure, Menu, Transition } from "@headlessui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRouter } from "next/router";
 import Link from "./link";
@@ -167,7 +167,7 @@ const DesktopPopover = ({ name, items, cta }) => {
 							open
 								? "bg-gray-900 text-white"
 								: "text-gray-500 hover:text-gray-300",
-							"group bg-black rounded-md inline-flex items-center text-base font-medium focus:outline-none"
+							"group rounded-md inline-flex items-center text-base font-medium focus:outline-none"
 						)}
 					>
 						<span>{name}</span>
@@ -263,7 +263,7 @@ const MobileDropdown = ({ name, items, cta }) => {
 					<Menu.Button
 						className={cn(
 							open ? "text-white" : "text-gray-500",
-							"group bg-black rounded-md inline-flex items-center text-base font-medium hover:text-gray-300 focus:outline-none"
+							"group rounded-md inline-flex items-center text-base font-medium hover:text-gray-300 focus:outline-none"
 						)}
 					>
 						<span>{name}</span>
@@ -325,103 +325,95 @@ const Header = () => {
 	const signedIn = !isError;
 
 	return (
-		<Popover className="h-24 fixed z-30 bg-black">
-			{({ open }) => (
-				<>
-					<div className="h-full w-screen flex flex-col justify-center px-6">
-						<div className="flex justify-between items-center py-6 md:justify-start md:space-x-8">
-							<div className="flex-shrink-0 flex justify-start">
-								<a href="https://www.circlek.org/">
-									<span className="sr-only">Circle K International</span>
-									<img
-										className="h-10 w-auto"
-										src="https://i.imgur.com/p7Ufk3d.png"
-										alt="Circle K International"
-									/>
-								</a>
-							</div>
-
-							{/* Mobile Menu Toggle */}
-							<div className="-my-2 md:hidden">
-								<Popover.Button className="bg-black rounded-md p-2 inline-flex items-center justify-center text-white hover:text-gray-100 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-									<span className="sr-only">Open menu</span>
-									<span className="h-6 w-6">
-										<FontAwesomeIcon
-											icon={["fas", `${open ? "times" : "bars"}`]}
-											className="text-2xl"
-											aria-hidden="true"
+		<header className="fixed z-30">
+			<Disclosure as="nav" className="h-24 bg-black">
+				{({ open }) => (
+					<>
+						<div className="h-full w-screen flex flex-col justify-center px-6">
+							<div className="flex justify-between items-center py-6 md:justify-start md:space-x-8">
+								<div className="flex-shrink-0 flex justify-start">
+									<a href="https://www.circlek.org/">
+										<span className="sr-only">Circle K International</span>
+										<img
+											className="h-10 w-auto"
+											src="https://i.imgur.com/p7Ufk3d.png"
+											alt="Circle K International"
 										/>
-									</span>
-								</Popover.Button>
-							</div>
-
-							{/* Desktop Navbar */}
-							<Popover.Group as="nav" className="hidden md:flex space-x-8">
-								<Link
-									href="/"
-									className="text-base font-medium text-gray-500 hover:text-gray-300"
-								>
-									Home
-								</Link>
-
-								<DesktopPopover name="About" items={about} cta={aboutCTA} />
-								<DesktopPopover name="Events" items={events} cta={eventsCTA} />
-								<DesktopPopover
-									name="Resources"
-									items={resources}
-									cta={resourcesCTA}
-								/>
-							</Popover.Group>
-
-							{/* Desktop Register/Login */}
-							{!isLoading && (
-								<div className="hidden md:flex justify-end items-center md:flex-1">
-									{!signedIn ? (
-										<>
-											{/* Desktop Register */}
-											<Link
-												href="/login"
-												role="button"
-												className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-300"
-											>
-												Sign in
-											</Link>
-											{/* Desktop Login */}
-											<Link
-												href="/register"
-												role="button"
-												className="ml-8 whitespace-nowrap inline-flex justify-center items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
-											>
-												Sign up
-											</Link>
-										</>
-									) : (
-										<LogoutButton />
-									)}
+									</a>
 								</div>
-							)}
-						</div>
-					</div>
 
-					{/* Mobile Menu */}
-					<Transition
-						show={open}
-						as={Fragment}
-						enter="duration-200 ease-out"
-						enterFrom="opacity-0 scale-95"
-						enterTo="opacity-100 scale-100"
-						leave="duration-100 ease-in"
-						leaveFrom="opacity-100 scale-100"
-						leaveTo="opacity-0 scale-95"
-					>
-						<Popover.Panel
-							static
-							className="inset-x-0 p-2 transition transform origin-top-right md:hidden bg-black"
-						>
+								{/* Mobile Menu Toggle */}
+								<div className="-my-2 md:hidden">
+									<Disclosure.Button className="inline-flex justify-center items-center p-2 rounded-md text-white hover:text-gray-100 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+										<span className="sr-only">Open menu</span>
+										<span className="h-6 w-6">
+											<FontAwesomeIcon
+												icon={["fas", `${open ? "times" : "bars"}`]}
+												className="text-2xl"
+												aria-hidden="true"
+											/>
+										</span>
+									</Disclosure.Button>
+								</div>
+
+								{/* Desktop Navbar */}
+								<Popover.Group className="hidden md:flex space-x-8">
+									<Link
+										href="/"
+										className="text-base font-medium text-gray-500 hover:text-gray-300"
+									>
+										Home
+									</Link>
+
+									<DesktopPopover name="About" items={about} cta={aboutCTA} />
+									<DesktopPopover
+										name="Events"
+										items={events}
+										cta={eventsCTA}
+									/>
+									<DesktopPopover
+										name="Resources"
+										items={resources}
+										cta={resourcesCTA}
+									/>
+								</Popover.Group>
+
+								{/* Desktop Register/Login */}
+								{!isLoading && (
+									<div className="hidden md:flex justify-end items-center md:flex-1">
+										{!signedIn ? (
+											<>
+												{/* Desktop Register */}
+												<Link
+													href="/login"
+													role="button"
+													className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-300"
+												>
+													Sign in
+												</Link>
+												{/* Desktop Login */}
+												<Link
+													href="/register"
+													role="button"
+													className="ml-8 whitespace-nowrap inline-flex justify-center items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+												>
+													Sign up
+												</Link>
+											</>
+										) : (
+											<LogoutButton />
+										)}
+									</div>
+								)}
+							</div>
+						</div>
+
+						{/* Mobile Menu */}
+						<Disclosure.Panel className="md:hidden bg-black">
 							<div className="p-6">
 								{/* Menu Items */}
 								<div className="mt-6">
-									<nav className="grid gap-y-4">
+									<div className="grid gap-y-4">
 										<Link
 											href="/"
 											className="text-base font-medium text-gray-500 hover:text-gray-300"
@@ -439,7 +431,7 @@ const Header = () => {
 											items={resources}
 											cta={resourcesCTA}
 										/>
-									</nav>
+									</div>
 								</div>
 							</div>
 
@@ -467,11 +459,11 @@ const Header = () => {
 									</p>
 								</div>
 							)}
-						</Popover.Panel>
-					</Transition>
-				</>
-			)}
-		</Popover>
+						</Disclosure.Panel>
+					</>
+				)}
+			</Disclosure>
+		</header>
 	);
 };
 
