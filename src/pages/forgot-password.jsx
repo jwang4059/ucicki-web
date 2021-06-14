@@ -31,9 +31,9 @@ const ForgotPasswordPage = () => {
 	return (
 		<Layout title="Forgot Password">
 			<div className="min-h-screen">
-				<div className="flex justify-center">
-					<div className="w-full max-w-2xl mx-4 my-6">
-						<h1 className="text-center text-3xl font-extrabold text-gray-900 mb-4">
+				<div className="flex justify-center p-6">
+					<div className="w-full max-w-2xl">
+						<h1 className="p-6 text-center text-3xl font-extrabold">
 							Reset Password
 						</h1>
 						<Formik
@@ -53,15 +53,15 @@ const ForgotPasswordPage = () => {
 									</Form>
 								) : (
 									<div className="text-center">
-										<p className="bg-green-200 border-green-500 border-2 py-2">
+										<p className="bg-green-200 border-green-500 border-2 py-2 mb-4">
 											Password Reset Email sent
 										</p>
 										<p>{`Instructions for resetting your password have been sent to ${values.email}`}</p>
 										<Button
 											isLoading={isSubmitting}
-											onClick={() => router.push("/")}
+											onClick={() => router.push("/login")}
 										>
-											Return to Main
+											Return to Login
 										</Button>
 									</div>
 								)

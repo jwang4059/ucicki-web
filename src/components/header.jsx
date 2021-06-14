@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Popover, Disclosure, Menu, Transition } from "@headlessui/react";
+import { Popover, Menu, Transition } from "@headlessui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRouter } from "next/router";
 import Link from "./link";
@@ -326,7 +326,7 @@ const Header = () => {
 
 	return (
 		<header className="fixed z-30">
-			<Disclosure as="nav" className="h-24 bg-black">
+			<Popover as="nav" className="h-24 bg-black">
 				{({ open }) => (
 					<>
 						<div className="h-full w-screen flex flex-col justify-center px-6">
@@ -344,7 +344,7 @@ const Header = () => {
 
 								{/* Mobile Menu Toggle */}
 								<div className="-my-2 md:hidden">
-									<Disclosure.Button className="inline-flex justify-center items-center p-2 rounded-md text-white hover:text-gray-100 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+									<Popover.Button className="inline-flex justify-center items-center p-2 rounded-md text-white hover:text-gray-100 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
 										<span className="sr-only">Open menu</span>
 										<span className="h-6 w-6">
 											<FontAwesomeIcon
@@ -353,7 +353,7 @@ const Header = () => {
 												aria-hidden="true"
 											/>
 										</span>
-									</Disclosure.Button>
+									</Popover.Button>
 								</div>
 
 								{/* Desktop Navbar */}
@@ -409,60 +409,78 @@ const Header = () => {
 						</div>
 
 						{/* Mobile Menu */}
-						<Disclosure.Panel className="md:hidden bg-black">
-							<div className="p-6">
-								{/* Menu Items */}
-								<div className="mt-6">
-									<div className="grid gap-y-4">
-										<Link
-											href="/"
-											className="text-base font-medium text-gray-500 hover:text-gray-300"
-										>
-											Home
-										</Link>
-										<MobileDropdown name="About" items={about} cta={aboutCTA} />
-										<MobileDropdown
-											name="Events"
-											items={events}
-											cta={eventsCTA}
-										/>
-										<MobileDropdown
-											name="Resources"
-											items={resources}
-											cta={resourcesCTA}
-										/>
+						<Transition
+							show={open}
+							as={Fragment}
+							enter="duration-200 ease-out"
+							enterFrom="opacity-0 scale-95"
+							enterTo="opacity-100 scale-100"
+							leave="duration-100 ease-in"
+							leaveFrom="opacity-100 scale-100"
+							leaveTo="opacity-0 scale-95"
+						>
+							<Popover.Panel
+								static
+								className="inset-x-0 p-2 transition transform origin-top md:hidden bg-black"
+							>
+								<div className="p-6">
+									{/* Menu Items */}
+									<div className="mt-6">
+										<div className="grid gap-y-4">
+											<Link
+												href="/"
+												className="text-base font-medium text-gray-500 hover:text-gray-300"
+											>
+												Home
+											</Link>
+											<MobileDropdown
+												name="About"
+												items={about}
+												cta={aboutCTA}
+											/>
+											<MobileDropdown
+												name="Events"
+												items={events}
+												cta={eventsCTA}
+											/>
+											<MobileDropdown
+												name="Resources"
+												items={resources}
+												cta={resourcesCTA}
+											/>
+										</div>
 									</div>
 								</div>
-							</div>
 
-							{/* Mobile Register/Login */}
-							{!isLoading && (
-								<div className="py-6 px-5 space-y-6">
-									{/* Mobile Register */}
-									<Link
-										href="/register"
-										role="button"
-										className="w-full flex justify-center items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
-									>
-										Sign up
-									</Link>
-									{/* Mobile Login */}
-									<p className="mt-6 text-center text-base font-medium text-gray-500">
-										Already a member?{" "}
+								{/* Mobile Register/Login */}
+								{!isLoading && (
+									<div className="py-6 px-5 space-y-6">
+										{/* Mobile Register */}
 										<Link
-											href="/login"
+											href="/register"
 											role="button"
-											className="text-indigo-600 hover:text-indigo-500"
+											className="w-full flex justify-center items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
 										>
-											Sign in
+											Sign up
 										</Link>
-									</p>
-								</div>
-							)}
-						</Disclosure.Panel>
+										{/* Mobile Login */}
+										<p className="mt-6 text-center text-base font-medium text-gray-500">
+											Already a member?{" "}
+											<Link
+												href="/login"
+												role="button"
+												className="text-indigo-600 hover:text-indigo-500"
+											>
+												Sign in
+											</Link>
+										</p>
+									</div>
+								)}
+							</Popover.Panel>
+						</Transition>
 					</>
 				)}
-			</Disclosure>
+			</Popover>
 		</header>
 	);
 };

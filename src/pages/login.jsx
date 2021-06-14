@@ -48,16 +48,14 @@ const LoginPage = () => {
 
 	return (
 		<Layout title="Login">
-			<div className="min-h-screen flex justify-center">
-				<div className="w-full max-w-xl mx-4 my-6">
-					<div className="h-14">
+			<div className="min-h-screen flex justify-center p-6">
+				<div className="w-full max-w-xl">
+					<div className="h-28 p-6">
 						<h1 className="text-center text-3xl font-extrabold text-gray-900">
 							Sign in to your account
 						</h1>
 						{error ? (
-							<p className="text-center text-red-700 text-sm font-medium">
-								{error}
-							</p>
+							<p className="text-center text-red-700 p-2">{error}</p>
 						) : null}
 					</div>
 					<Formik
@@ -82,9 +80,9 @@ const LoginPage = () => {
 								placeholder="Password"
 								required
 							/>
-							<div className="text-center">
+							<div>
 								<button
-									className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 my-4"
+									className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 my-6"
 									type="submit"
 								>
 									Submit
