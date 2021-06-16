@@ -11,3 +11,7 @@
 	max-height: 100vh;
 	margin-top: -6rem;
 }
+
+#familiesCarousel .swiper-scrollbar {
+	display: none;
+}

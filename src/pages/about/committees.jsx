@@ -4,7 +4,7 @@ import Link from "../../components/link";
 
 const CommitteeCard = ({ name, heads, children, imgSrc, imgAlt }) => {
 	return (
-		<article className="flex flex-col md:flex-row justify-center items-center bg-gray-200 mb-8 rounded-md shadow-md md:p-4">
+		<article className="flex flex-col md:flex-row justify-center items-center bg-gray-100 mb-8 rounded-md shadow-md md:p-4">
 			<section className="flex-shrink-0">
 				<img
 					className="w-full md:w-72 md:h-48 object-cover md:mr-4"
