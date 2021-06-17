@@ -1,4 +1,6 @@
 import React from "react";
+import "@fullcalendar/common/main.css";
+import "@fullcalendar/daygrid/main.css";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {

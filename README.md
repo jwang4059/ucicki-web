@@ -52,6 +52,11 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 - [Swiper React Docs](https://swiperjs.com/react) - instructions on how to use Swiper with React
 - [Swiper API Docs](https://swiperjs.com/swiper-api) - documentation on how to use Swiper in general
 
+### FullCalendar (Calendar Component)
+
+- [FullCalendar React Docs](https://fullcalendar.io/docs/react) - instructions on how to use FullCalendar with React
+- [FullCalendar NextJS Example](https://github.com/fullcalendar/fullcalendar-example-projects/tree/master/next) - example for NextJS
+
 ### Formik (Form Management) + Yup (Form Validation)
 
 - [Formik + Yup Tutorial](https://formik.org/docs/tutorial)
