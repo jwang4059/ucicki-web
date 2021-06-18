@@ -3,7 +3,9 @@ import { useRouter } from "next/router";
 import Error from "next/error";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
+
 import Layout from "../../components/layout";
+import SEO from "../../components/seo";
 import Input from "../../components/input";
 import Button from "../../components/button";
 
@@ -82,7 +84,8 @@ const ChangePasswordPage = () => {
 	}
 
 	return (
-		<Layout title="Change Password">
+		<Layout>
+			<SEO title="Change Password" />
 			<div className="min-h-screen">
 				<div className="flex justify-center">
 					<div className="w-full max-w-2xl mx-4 my-6">

@@ -1,10 +1,12 @@
 import React from "react";
 import Layout from "../../components/layout";
+import SEO from "../../components/seo";
 import Link from "../../components/link";
 
 const CKISouthPage = () => {
 	return (
-		<Layout title="CKI South">
+		<Layout>
+			<SEO title="CKI South" />
 			<div className="max-w-7xl mx-auto">
 				<h1 className="p-6 text-center text-3xl font-extrabold">
 					Crazy Kompetition for Infants

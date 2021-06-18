@@ -1,5 +1,6 @@
 import React from "react";
 import Layout from "../../components/layout";
+import SEO from "../../components/seo";
 
 const testimonials = [
 	{
@@ -27,7 +28,11 @@ const testimonials = [
 	},
 	{
 		name: "Kristian Balmes (Mentor)",
-		quote: `Since getting paired with my mentee, i've never felt more of that "big brother" role ever before in my life. My mentee has given me a chance to be more open minded about the chances that I take. It's true what they say: you learn more from your students, than your students who learn from you.`,
+		quote: `Since getting paired with my mentee, I've never felt more of that "big brother" role ever before in my life. My mentee has given me a chance to be more open minded about the chances that I take. It's true what they say: you learn more from your students, than your students who learn from you.`,
+	},
+	{
+		name: "John Wang (Mentor)",
+		quote: `Getting a mentee was probably the best decision I've made since I've joined the club. I never would've thought that I'd be able to find someone so funny, honest, and caring within such a large school. I'm extremely grateful that I got to be her mentor and will continue to bully her and send her dumb memes for her to react to.`,
 	},
 ];
 
@@ -41,6 +46,7 @@ const Testimony = ({ name, quote }) => (
 const MentorshipPage = () => {
 	return (
 		<Layout>
+			<SEO title="Mentorship" />
 			<div className="max-w-7xl mx-auto">
 				<article className="p-6">
 					<h1 className="text-center text-3xl font-extrabold mb-6">
@@ -58,14 +64,55 @@ const MentorshipPage = () => {
 						meetings.
 					</p>
 				</article>
-				<article>
-					{testimonials.map((testimony, index) => (
-						<Testimony
-							key={index}
-							name={testimony.name}
-							quote={testimony.quote}
-						/>
-					))}
+				<article className="w-full max-w-3xl mx-auto p-6">
+					<div className="grid grid-cols-10 grid-rows-3">
+						<div className="col-start-1 col-end-4 row-start-1 row-end-2">
+							<img
+								className="w-full h-full object-cover"
+								src="https://i.imgur.com/3S0T6QJ.jpg"
+								alt=""
+							/>
+						</div>
+						<div className="col-start-1 col-end-4 row-start-2 row-end-4">
+							<img
+								className="w-full h-full object-cover"
+								src="https://i.imgur.com/xpE1hn0.jpg"
+								alt=""
+							/>
+						</div>
+						<div className="col-start-4 col-end-8 row-start-1 row-end-4">
+							<img
+								className="w-full h-full object-cover"
+								src="https://i.imgur.com/fh6TlF3.jpg"
+								alt=""
+							/>
+						</div>
+						<div className="col-start-8 col-end-11 row-start-1 row-end-3">
+							<img
+								className="w-full h-full object-cover"
+								src="https://i.imgur.com/vY7auLC.jpg"
+								alt=""
+							/>
+						</div>
+						<div className="col-start-8 col-end-11 row-start-3 row-end-4">
+							<img
+								className="w-full h-full object-cover"
+								src="https://i.imgur.com/Sm9HFyU.jpg"
+								alt=""
+							/>
+						</div>
+					</div>
+				</article>
+				<article className="p-6">
+					<div className="bg-gray-100 rounded-md shadow-md ">
+						{testimonials.map((testimony, index) => (
+							<Testimony
+								key={index}
+								name={testimony.name}
+								quote={testimony.quote}
+							/>
+						))}
+					</div>
 				</article>
 			</div>
 		</Layout>

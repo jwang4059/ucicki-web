@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Link from "../components/link";
 import { Formik, Form, useField } from "formik";
 import Layout from "../components/layout";
+import SEO from "../components/seo";
 
 const Input = ({ label, ...props }) => {
 	const [field] = useField(props);
@@ -47,7 +48,8 @@ const LoginPage = () => {
 	};
 
 	return (
-		<Layout title="Login">
+		<Layout>
+			<SEO title="Login" />
 			<div className="min-h-screen flex justify-center p-6">
 				<div className="w-full max-w-xl">
 					<div className="h-28 p-6">

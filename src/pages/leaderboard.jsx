@@ -1,5 +1,6 @@
 import React from "react";
 import Layout from "../components/layout";
+import SEO from "../components/seo";
 
 const Hour = ({ name, src, hours }) => {
 	return (
@@ -17,7 +18,8 @@ const Hour = ({ name, src, hours }) => {
 
 const Leaderboard = () => {
 	return (
-		<Layout title="Leaderboard">
+		<Layout>
+			<SEO title="Leaderboard" />
 			<section>{/*Member of the Week/ Citrus of the Month */}</section>
 			<section className="text-center">
 				<h2>Club Hours</h2>

@@ -1,10 +1,12 @@
 import React from "react";
 import Layout from "../../components/layout";
+import SEO from "../../components/seo";
 import EventCard from "../../components/eventCard";
 
 const LeadershipPage = () => {
 	return (
-		<Layout title="Leadership">
+		<Layout>
+			<SEO title="Leadership" />
 			<div className="max-w-7xl mx-auto">
 				<h1 className="p-6 text-center text-3xl font-extrabold">Leadership</h1>
 				<article className="grid gap-4 p-6">

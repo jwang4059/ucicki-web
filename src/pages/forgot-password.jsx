@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import Layout from "../components/layout";
+import SEO from "../components/seo";
 import Input from "../components/input";
 import Button from "../components/button";
 import { useRouter } from "next/router";
@@ -29,7 +30,8 @@ const ForgotPasswordPage = () => {
 	};
 
 	return (
-		<Layout title="Forgot Password">
+		<Layout>
+			<SEO title="Forgot Password" />
 			<div className="min-h-screen">
 				<div className="flex justify-center p-6">
 					<div className="w-full max-w-2xl">

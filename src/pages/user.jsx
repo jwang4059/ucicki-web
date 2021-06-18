@@ -2,6 +2,7 @@ import React from "react";
 import { useUser } from "../utils/fetcher";
 import Date from "../components/date";
 import Layout from "../components/layout";
+import SEO from "../components/seo";
 
 const Contribution = ({ classes, name, hours }) => {
 	return (
@@ -73,7 +74,12 @@ const UserPage = () => {
 		content = <UserSection data={data} />;
 	}
 
-	return <Layout title="User">{content}</Layout>;
+	return (
+		<Layout>
+			<SEO title="User" />
+			{content}
+		</Layout>
+	);
 };
 
 export default UserPage;

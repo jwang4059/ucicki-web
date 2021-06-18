@@ -1,5 +1,6 @@
 import React from "react";
 import Layout from "../../components/layout";
+import SEO from "../../components/seo";
 
 const Profile = ({ name, position, email, imgSrc, imgAlt }) => (
 	<section className="flex flex-col md:flex-row p-2">
@@ -29,7 +30,8 @@ const BoardSection = ({ title, children }) => {
 
 const BoardPage = () => {
 	return (
-		<Layout title="Board">
+		<Layout>
+			<SEO title="Board" />
 			<div className="max-w-7xl mx-auto">
 				<h1 className="p-6 text-center text-3xl font-extrabold">
 					UCI Circle K Board

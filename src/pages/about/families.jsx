@@ -2,7 +2,9 @@ import React from "react";
 import SwiperCore, { Navigation, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
+
 import Layout from "../../components/layout";
+import SEO from "../../components/seo";
 
 SwiperCore.use([Navigation, A11y]);
 
@@ -28,7 +30,8 @@ const FamilyCard = ({ title, names, imgSrc, imgAlt }) => {
 
 const FamiliesPage = () => {
 	return (
-		<Layout title="Families">
+		<Layout>
+			<SEO title="Families" />
 			<div className="max-w-7xl mx-auto">
 				<h1 className="p-6 text-center text-3xl font-extrabold">Families</h1>
 				<article className="p-6">

@@ -105,12 +105,6 @@ const resources = [
 		href: "/mrp",
 		icon: ["fas", "tasks"],
 	},
-	{
-		name: "Suggestion Box",
-		description: "Make a suggestion.",
-		href: "/suggestion-box",
-		icon: ["fas", "inbox"],
-	},
 ];
 
 const aboutCTA = [

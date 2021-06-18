@@ -1,5 +1,6 @@
 import React from "react";
 import Layout from "../../components/layout";
+import SEO from "../../components/seo";
 import Link from "../../components/link";
 
 const Tenet = ({ title, text, imageSrc, imageAlt }) => (
@@ -17,9 +18,10 @@ const Branch = ({ title, children }) => (
 	</section>
 );
 
-const AboutPage = () => {
+const CircleKPage = () => {
 	return (
-		<Layout title="About">
+		<Layout>
+			<SEO title="About" />
 			<div className="relative md:-mt-24">
 				<div className="bg-black h-full w-full absolute z-10 bg-opacity-50 flex justify-center items-center">
 					<h1 className="text-white text-4xl md:text-6xl text-center font-extrabold">
@@ -143,4 +145,4 @@ const AboutPage = () => {
 	);
 };
 
-export default AboutPage;
+export default CircleKPage;

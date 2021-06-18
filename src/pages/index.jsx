@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
 
 import Layout from "../components/layout";
+import SEO from "../components/seo";
 import Link from "../components/link";
 
 SwiperCore.use([Navigation, Pagination, A11y]);
@@ -108,7 +109,8 @@ const Card = ({ title, text, imageSrc, imageAlt, reverse = false }) => {
 
 const IndexPage = () => {
 	return (
-		<Layout title="Main">
+		<Layout>
+			<SEO title="Main" />
 			<article>
 				<Carousel />
 				<article className="max-w-7xl mx-auto">

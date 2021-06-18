@@ -5,6 +5,7 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 
 import Layout from "../components/layout";
+import SEO from "../components/seo";
 import Input from "../components/input";
 import Button from "../components/button";
 
@@ -64,7 +65,8 @@ const RegisterPage = () => {
 	};
 
 	return (
-		<Layout title="Register">
+		<Layout>
+			<SEO title="Register" />
 			<div className="min-h-screen flex justify-center">
 				<div className="w-full max-w-2xl mx-4 my-6">
 					<h1 className="text-center text-3xl font-extrabold text-gray-900 mb-8">

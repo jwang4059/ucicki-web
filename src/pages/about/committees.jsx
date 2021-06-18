@@ -1,5 +1,6 @@
 import React from "react";
 import Layout from "../../components/layout";
+import SEO from "../../components/seo";
 import Link from "../../components/link";
 
 const CommitteeCard = ({ name, heads, children, imgSrc, imgAlt }) => {
@@ -25,7 +26,8 @@ const CommitteeCard = ({ name, heads, children, imgSrc, imgAlt }) => {
 
 const CommitteesPage = () => {
 	return (
-		<Layout title="Committees">
+		<Layout>
+			<SEO title="Committees" />
 			<div className="max-w-7xl mx-auto">
 				<h1 className="text-3xl text-center font-extrabold p-6">
 					Club Committees

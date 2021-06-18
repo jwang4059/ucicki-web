@@ -1,5 +1,6 @@
 import React from "react";
 import Layout from "../../components/layout";
+import SEO from "../../components/seo";
 import EventCard from "../../components/eventCard";
 
 const ProgramCard = ({ title, description, imgSrc, imgAlt }) => {
@@ -20,7 +21,8 @@ const ProgramCard = ({ title, description, imgSrc, imgAlt }) => {
 
 const FundraisingPage = () => {
 	return (
-		<Layout title="Fundraising">
+		<Layout>
+			<SEO title="Fundraising" />
 			<div className="max-w-7xl mx-auto">
 				<h1 className="p-6 text-center text-3xl font-extrabold">Fundraising</h1>
 				<article className="grid gap-4">

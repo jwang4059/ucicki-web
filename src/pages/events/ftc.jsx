@@ -1,10 +1,12 @@
 import React from "react";
 import Layout from "../../components/layout";
+import SEO from "../../components/seo";
 import Link from "../../components/link";
 
 const FTCPage = () => {
 	return (
-		<Layout title="FTC">
+		<Layout>
+			<SEO title="FTC" />
 			<div className="max-w-7xl mx-auto">
 				<h1 className="p-6 text-center text-3xl font-extrabold">
 					Fall Training Conference
