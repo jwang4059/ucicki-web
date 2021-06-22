@@ -330,7 +330,7 @@ const Header = () => {
 										<span className="sr-only">Circle K International</span>
 										<img
 											className="h-10 w-auto"
-											src="https://i.imgur.com/p7Ufk3d.png"
+											src="/cki_text.png"
 											alt="Circle K International"
 										/>
 									</a>

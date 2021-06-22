@@ -1,17 +1,18 @@
 import React from "react";
+import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Icon = ({ href, icon }) => (
 	<a href={href} target="__blank" rel="noreferrer">
-		<div className="flex justify-center items-center text-lg p-2 border-2 m-2 bg-gray-200 border-white rounded-full">
-			<FontAwesomeIcon icon={icon} />
+		<div className="w-12 h-12 flex justify-center items-center p-2 border-2 m-2 bg-gray-200 border-white rounded-full">
+			<FontAwesomeIcon className="w-6 h-6" icon={icon} />
 		</div>
 	</a>
 );
 
 const Emblem = ({ href, src, alt }) => (
 	<a href={href} target="__blank" rel="noreferrer">
-		<img className="h-24 w-24 m-2" src={src} alt={alt} />
+		<Image src={src} alt={alt} width="96" height="96" />
 	</a>
 );
 
@@ -52,20 +53,20 @@ const Footer = (props) => {
 					</div>
 				</FooterSection>
 				<FooterSection title="Circle K">
-					<div className="flex flex-wrap md:flex-nowrap md:flex-1 justify-center p-2">
+					<div className="flex flex-wrap md:flex-nowrap md:flex-1 justify-center space-x-2 p-2">
 						<Emblem
 							href="https://www.facebook.com/groups/cnhckicitrus/"
-							src="https://i.imgur.com/fsG85vT.png"
+							src="/citrus_emblem.png"
 							alt="Citrus Division Emblem"
 						/>
 						<Emblem
 							href="http://www.circlek.org/"
-							src="https://i.imgur.com/8SAo106.png"
+							src="/cki_emblem.png"
 							alt="Circle K International Emblem"
 						/>
 						<Emblem
 							href="http://www.cnhcirclek.org/"
-							src="https://i.imgur.com/ivNFdgl.png"
+							src="/cnh_emblem.png"
 							alt="Cal-Nev-Ha District Emblem"
 						/>
 					</div>
